@@ -21,7 +21,9 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'fort_category_id'); ?>
-		<?php echo $form->textField($model,'fort_category_id'); ?>
+		<?php //echo $form->textField($model,'fort_category_id'); ?>
+		<?php echo $form->dropDownList($model,'fort_category_id',CHtml::listData(
+			$fortCategory,'id','category_name'),array('prompt'=>'Select Category')); ?>
 		<?php echo $form->error($model,'fort_category_id'); ?>
 	</div>
 
@@ -51,13 +53,30 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'marathi_content'); ?>
-		<?php echo $form->textArea($model,'marathi_content',array('rows'=>6, 'cols'=>50)); ?>
+		<?php //echo $form->textArea($model,'marathi_content',array('rows'=>6, 'cols'=>50)); ?>
+
+<?php $this->widget('application.extensions.extckeditor.ExtCKEditor', array(
+'model'=>$model,
+'attribute'=>'marathi_content', // model atribute
+'language'=>'en', /* default lang, If not declared the language of the project will be used in case of using multiple languages */
+'editorTemplate'=>'full', // Toolbar settings (full, basic, advanced)
+)); ?>
+
 		<?php echo $form->error($model,'marathi_content'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'english_content'); ?>
-		<?php echo $form->textArea($model,'english_content',array('rows'=>6, 'cols'=>50)); ?>
+		<?php //echo $form->textArea($model,'english_content',array('rows'=>6, 'cols'=>50)); ?>
+
+
+<?php $this->widget('application.extensions.extckeditor.ExtCKEditor', array(
+'model'=>$model,
+'attribute'=>'english_content', // model atribute
+'language'=>'en', /* default lang, If not declared the language of the project will be used in case of using multiple languages */
+'editorTemplate'=>'full', // Toolbar settings (full, basic, advanced)
+)); ?>
+
 		<?php echo $form->error($model,'english_content'); ?>
 	</div>
 
@@ -85,7 +104,8 @@
 		<?php echo $form->error($model,'blog_detail_alt'); ?>
 	</div>
 
-	<div class="row">
+
+	<!--<div class="row">
 		<?php echo $form->labelEx($model,'view_count'); ?>
 		<?php echo $form->textField($model,'view_count'); ?>
 		<?php echo $form->error($model,'view_count'); ?>
@@ -101,7 +121,7 @@
 		<?php echo $form->labelEx($model,'date_modified'); ?>
 		<?php echo $form->textField($model,'date_modified'); ?>
 		<?php echo $form->error($model,'date_modified'); ?>
-	</div>
+	</div>-->
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

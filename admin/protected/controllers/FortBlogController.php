@@ -63,19 +63,45 @@ class FortBlogController extends Controller
 	public function actionCreate()
 	{
 		$model=new FortBlog;
+        $fortCategory = Yii::app()->db->createCommand()
+								->select('*')
+								->from('fort_category')
+								->queryAll();
 
+        $state = Yii::app()->db->createCommand()
+								->select('city_state')
+								->from('cities')
+								->group('city_state')
+								->having('city_state = :state', array(':state'=>'Maharashtra'))
+								->queryAll();
+
+		$district = Yii::app()->db->createCommand()
+								->select('city_name')
+								->from('cities')
+								->where('city_state = :state',array('state'=>'Maharashtra'))
+								->queryAll();
+
+		echo "<pre>";
+		print_r($state);
+		print_r($district);
+		exit;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['FortBlog']))
 		{
 			$model->attributes=$_POST['FortBlog'];
+
+			$model->date_added = date("Y-m-d H:i:s");
+			$model->date_modified = date("Y-m-d H:i:s");
+
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+			'fortCategory' => $fortCategory
 		));
 	}
 
@@ -87,6 +113,24 @@ class FortBlogController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+        $fortCategory = Yii::app()->db->createCommand()
+								->select('*')
+								->from('fort_category')
+								->queryAll();
+
+
+        $state = Yii::app()->db->createCommand()
+								->select('city_state')
+								->from('cities')
+								->group('city_state')
+								->having('city_state = :state', array(':state'=>'Maharashtra'))
+								->queryAll();
+
+		$district = Yii::app()->db->createCommand()
+								->select('city_name')
+								->from('cities')
+								->where('city_state = :state',array('state'=>'Maharashtra'))
+								->queryAll();
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -94,12 +138,14 @@ class FortBlogController extends Controller
 		if(isset($_POST['FortBlog']))
 		{
 			$model->attributes=$_POST['FortBlog'];
+			$model->date_modified = date("Y-m-d H:i:s");
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
+			'fortCategory' => $fortCategory
 		));
 	}
 
