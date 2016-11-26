@@ -15,4 +15,5 @@ $this->menu=array(
 
 <h1>Create FortBlog</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model,'fortCategory' => $fortCategory)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'fortCategory' => $fortCategory,'state' => $state,
+			'district' =>$district)); ?>

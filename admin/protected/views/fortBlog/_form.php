@@ -13,6 +13,8 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('enctype'=>'multipart/form-data')
+
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -29,7 +31,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'thumbnail'); ?>
-		<?php echo $form->textField($model,'thumbnail',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->fileField($model,'thumbnail',array('size'=>60,'maxlength'=>500)); ?>
 		<?php echo $form->error($model,'thumbnail'); ?>
 	</div>
 
@@ -47,7 +49,30 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'blog_date'); ?>
-		<?php echo $form->textField($model,'blog_date'); ?>
+		<?php //echo $form->textField($model,'blog_date'); ?>
+
+
+<?php $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+			'name'=>'FortBlog[blog_date]',
+			'model'=>$model,
+			'value'=>$model->blog_date!='' ? date('Y-m-d', strtotime($model->blog_date)) : '',
+		// additional javascript options for the date picker plugin
+		'options'=>array(
+		'dateFormat'=>'yy-m-dd',
+		'showAnim'=>'fold',
+		'changeYear' => true,
+		'changeMonth' => true
+		
+						),
+						'htmlOptions'=>array(
+							'style'=>'height:20px;',
+							'readonly'=>'true' 
+
+						),
+					));
+
+		?>
+
 		<?php echo $form->error($model,'blog_date'); ?>
 	</div>
 
@@ -82,19 +107,23 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'state'); ?>
-		<?php echo $form->textField($model,'state',array('size'=>60,'maxlength'=>500)); ?>
+		<?php //echo $form->textField($model,'state',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->dropDownList($model,'state',CHtml::listData(
+			$state,'city_state','city_state'),array('prompt'=>'Select State')); ?>
 		<?php echo $form->error($model,'state'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'district'); ?>
-		<?php echo $form->textField($model,'district',array('size'=>60,'maxlength'=>500)); ?>
+		<?php //echo $form->textField($model,'district',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->dropDownList($model,'district',CHtml::listData(
+			$district,'city_name','city_name'),array('prompt'=>'Select District')); ?>
 		<?php echo $form->error($model,'district'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'blog_detail_thumbnail'); ?>
-		<?php echo $form->textField($model,'blog_detail_thumbnail',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->fileField($model,'blog_detail_thumbnail',array('size'=>60,'maxlength'=>500)); ?>
 		<?php echo $form->error($model,'blog_detail_thumbnail'); ?>
 	</div>
 

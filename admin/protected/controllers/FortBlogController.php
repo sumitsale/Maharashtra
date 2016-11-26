@@ -73,18 +73,16 @@ class FortBlogController extends Controller
 								->from('cities')
 								->group('city_state')
 								->having('city_state = :state', array(':state'=>'Maharashtra'))
+								->order('city_state')
 								->queryAll();
 
 		$district = Yii::app()->db->createCommand()
 								->select('city_name')
 								->from('cities')
 								->where('city_state = :state',array('state'=>'Maharashtra'))
+								->order('city_state')
 								->queryAll();
 
-		echo "<pre>";
-		print_r($state);
-		print_r($district);
-		exit;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -101,7 +99,9 @@ class FortBlogController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
-			'fortCategory' => $fortCategory
+			'fortCategory' => $fortCategory,
+			'state' => $state,
+			'district' =>$district
 		));
 	}
 
