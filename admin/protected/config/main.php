@@ -31,6 +31,31 @@ return array(
 
 	// application components
 	'components'=>array(
+			
+	'easyImage' => array(
+        'class' => 'application.extensions.easyimage.EasyImage',
+        //'driver' => 'GD',
+        //'quality' => 100,
+        //'cachePath' => '/assets/easyimage/',
+        //'cacheTime' => 2592000,
+        //'retinaSupport' => false,
+),
+	
+	 'image' => array(
+            'class' => 'application.extensions.image.CImageComponent',
+            // GD or ImageMagick
+            'driver' => 'GD',
+            // ImageMagick setup path
+            'params' => array('directory' => '/opt/local/bin'),
+        ),
+        'image' => array(
+            'class' => 'application.extensions.image.CImageComponent',
+            // GD or ImageMagick
+            'driver' => 'GD',
+            // ImageMagick setup path
+            'params' => array('directory' => '/opt/local/bin'),
+        ),
+
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

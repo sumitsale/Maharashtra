@@ -88,13 +88,47 @@ class FortBlogController extends Controller
 
 		if(isset($_POST['FortBlog']))
 		{
+
+
+
+
 			$model->attributes=$_POST['FortBlog'];
+			$model->marathi_content = htmlentities($model->marathi_content);
+			$model->english_content = htmlentities($model->english_content);
+
+			$model->thumbnail = $_FILES['FortBlog']['name']['thumbnail'] != '' ? $_FILES['FortBlog']['name']['thumbnail'] : '';
+			$model->blog_detail_thumbnail = $_FILES['FortBlog']['name']['blog_detail_thumbnail'] != '' ? $_FILES['FortBlog']['name']['blog_detail_thumbnail'] : '';
 
 			$model->date_added = date("Y-m-d H:i:s");
 			$model->date_modified = date("Y-m-d H:i:s");
+			$model->view_count = 0;
+			if($model->save()) {
 
-			if($model->save())
+				if($model->thumbnail !='')
+				{
+					$model->thumbnail=CUploadedFile::getInstance($model,'thumbnail');
+					$model->thumbnail->saveAs(Yii::app()->basePath  . '/../../images/fort/thumbnail/'. $model->thumbnail );			
+					
+					$resize = new ResizeImage(Yii::app()->basePath . '/../../images/fort/thumbnail/'. $model->thumbnail );
+					$resize->resizeTo(350, 185, 'exact');
+					$resize->saveImage(Yii::app()->basePath . '/../../images/fort/thumbnail/'. $model->thumbnail );
+				}
+
+
+				if($model->blog_detail_thumbnail !='')
+				{
+					$model->blog_detail_thumbnail=CUploadedFile::getInstance($model,'blog_detail_thumbnail');
+					$model->blog_detail_thumbnail->saveAs(Yii::app()->basePath  . '/../../images/fort/blog_detail_thumbnail/'. $model->blog_detail_thumbnail );			
+					
+					$resize = new ResizeImage(Yii::app()->basePath . '/../../images/fort/blog_detail_thumbnail/'. $model->blog_detail_thumbnail );
+					$resize->resizeTo(730, 370, 'exact');
+					$resize->saveImage(Yii::app()->basePath . '/../../images/fort/blog_detail_thumbnail/'. $model->blog_detail_thumbnail );
+				}
+				
 				$this->redirect(array('admin'));
+
+			}
+				
 		}
 
 		$this->render('create',array(
@@ -118,34 +152,66 @@ class FortBlogController extends Controller
 								->from('fort_category')
 								->queryAll();
 
-
         $state = Yii::app()->db->createCommand()
 								->select('city_state')
 								->from('cities')
 								->group('city_state')
 								->having('city_state = :state', array(':state'=>'Maharashtra'))
+								->order('city_state')
 								->queryAll();
 
 		$district = Yii::app()->db->createCommand()
 								->select('city_name')
 								->from('cities')
 								->where('city_state = :state',array('state'=>'Maharashtra'))
+								->order('city_state')
 								->queryAll();
 
+		$thumbnail = $model->thumbnail;
+		$blog_detail_thumbnail = $model->blog_detail_thumbnail;	
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+
 
 		if(isset($_POST['FortBlog']))
 		{
 			$model->attributes=$_POST['FortBlog'];
 			$model->date_modified = date("Y-m-d H:i:s");
-			if($model->save())
+			$model->thumbnail = isset($_FILES['FortBlog']['name']['thumbnail']) && $_FILES['FortBlog']['name']['thumbnail']!=''  ? $_FILES['FortBlog']['name']['thumbnail'] : $thumbnail;
+			$model->blog_detail_thumbnail = isset($_FILES['FortBlog']['name']['blog_detail_thumbnail']) && $_FILES['FortBlog']['name']['blog_detail_thumbnail']!=''  ? $_FILES['FortBlog']['name']['blog_detail_thumbnail'] : $blog_detail_thumbnail;
+			
+			if($model->save()) {
+					
+			if($model->thumbnail !='' && $model->thumbnail !=$thumbnail)
+				{	$model->thumbnail=CUploadedFile::getInstance($model,'thumbnail');
+					$model->thumbnail->saveAs(Yii::app()->basePath  . '/../../images/fort/thumbnail/'. $model->thumbnail );			
+					
+					$resize = new ResizeImage(Yii::app()->basePath . '/../../images/fort/thumbnail/'. $model->thumbnail );
+					$resize->resizeTo(350, 185, 'exact');
+					$resize->saveImage(Yii::app()->basePath . '/../../images/fort/thumbnail/'. $model->thumbnail );
+				}
+
+				
+			if($model->blog_detail_thumbnail !='' && $model->blog_detail_thumbnail !=$blog_detail_thumbnail)
+				{
+					$model->blog_detail_thumbnail=CUploadedFile::getInstance($model,'blog_detail_thumbnail');
+					$model->blog_detail_thumbnail->saveAs(Yii::app()->basePath  . '/../../images/fort/blog_detail_thumbnail/'. $model->blog_detail_thumbnail );			
+					
+					$resize = new ResizeImage(Yii::app()->basePath . '/../../images/fort/blog_detail_thumbnail/'. $model->blog_detail_thumbnail );
+					$resize->resizeTo(730, 370, 'exact');
+					$resize->saveImage(Yii::app()->basePath . '/../../images/fort/blog_detail_thumbnail/'. $model->blog_detail_thumbnail );
+				}
+			
 				$this->redirect(array('admin'));
+			}
+				
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
-			'fortCategory' => $fortCategory
+			'fortCategory' => $fortCategory,
+			'state' => $state,
+			'district' =>$district
 		));
 	}
 
