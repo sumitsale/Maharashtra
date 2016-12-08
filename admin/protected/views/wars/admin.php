@@ -1,15 +1,15 @@
 <?php
-/* @var $this FortBlogController */
-/* @var $model FortBlog */
+/* @var $this WarsController */
+/* @var $model Wars */
 
 $this->breadcrumbs=array(
-	'Fort Blogs'=>array('index'),
+	'Wars'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List FortBlog', 'url'=>array('index')),
-	array('label'=>'Create FortBlog', 'url'=>array('create')),
+	array('label'=>'List Wars', 'url'=>array('index')),
+	array('label'=>'Create Wars', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#fort-blog-grid').yiiGridView('update', {
+	$('#wars-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Fort Blogs</h1>
+<h1>Manage Wars</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,37 +41,28 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'fort-blog-grid',
+	'id'=>'wars-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		//'id',
-		//'fort_category_id',
-		array(
-                'name'=>'FortCategory.category_name',
-                'value'=>'FortCategory::Model()->FindByPk($data->fort_category_id)->category_name' , //display the grid view 
-        ),
+		//	'id',
 		'thumbnail',
 		'thumbnail_alt',
 		'title',
 		'blog_date',
-		'view_count',
-		
-		'state',
+			'state',
 		'district',
-		// 'blog_detail_thumbnail',
-		// 'blog_detail_alt',
-		
+		'detail_thumbnail',
+		'detail_alt',
+		'view_count',
 		'date_added',
 		'date_modified',
-		
 		/*
-		'marathi_content',
 		'english_content',
 		'state',
 		'district',
-		'blog_detail_thumbnail',
-		'blog_detail_alt',
+		'detail_thumbnail',
+		'detail_alt',
 		'view_count',
 		'date_added',
 		'date_modified',

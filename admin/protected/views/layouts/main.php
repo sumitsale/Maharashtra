@@ -31,6 +31,8 @@
 			'items'=>array(
 				array('label'=>'Fort Category', 'url'=>array('/fortCategory/admin')),
 				array('label'=>'Forts', 'url'=>array('/fortBlog/admin')),
+				array('label'=>'Kings', 'url'=>array('/kings/admin')),
+				array('label'=>'Wars', 'url'=>array('/wars/admin')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

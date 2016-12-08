@@ -1,11 +1,10 @@
 <?php
 
 /**
- * This is the model class for table "fort_blog".
+ * This is the model class for table "wars".
  *
- * The followings are the available columns in table 'fort_blog':
+ * The followings are the available columns in table 'wars':
  * @property integer $id
- * @property integer $fort_category_id
  * @property string $thumbnail
  * @property string $thumbnail_alt
  * @property string $title
@@ -14,20 +13,20 @@
  * @property string $english_content
  * @property string $state
  * @property string $district
- * @property string $blog_detail_thumbnail
- * @property string $blog_detail_alt
+ * @property string $detail_thumbnail
+ * @property string $detail_alt
  * @property integer $view_count
  * @property string $date_added
  * @property string $date_modified
  */
-class FortBlog extends CActiveRecord
+class Wars extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'fort_blog';
+		return 'wars';
 	}
 
 	/**
@@ -38,12 +37,12 @@ class FortBlog extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fort_category_id, thumbnail, thumbnail_alt, title, blog_date, marathi_content, english_content, state, district, blog_detail_thumbnail, blog_detail_alt, view_count, date_added, date_modified', 'required'),
-			array('fort_category_id, view_count', 'numerical', 'integerOnly'=>true),
-			array('thumbnail, thumbnail_alt, title, state, district, blog_detail_thumbnail, blog_detail_alt', 'length', 'max'=>500),
+			array('thumbnail, thumbnail_alt, title, blog_date, marathi_content, english_content, state, district, detail_thumbnail, detail_alt, view_count, date_added, date_modified', 'required'),
+			array('view_count', 'numerical', 'integerOnly'=>true),
+			array('thumbnail, thumbnail_alt, title, state, district, detail_thumbnail, detail_alt', 'length', 'max'=>500),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, fort_category_id, thumbnail, thumbnail_alt, title, blog_date, marathi_content, english_content, state, district, blog_detail_thumbnail, blog_detail_alt, view_count, date_added, date_modified', 'safe', 'on'=>'search'),
+			array('id, thumbnail, thumbnail_alt, title, blog_date, marathi_content, english_content, state, district, detail_thumbnail, detail_alt, view_count, date_added, date_modified', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,7 +64,6 @@ class FortBlog extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'fort_category_id' => 'Fort Category',
 			'thumbnail' => 'Thumbnail',
 			'thumbnail_alt' => 'Thumbnail Alt',
 			'title' => 'Title',
@@ -74,8 +72,8 @@ class FortBlog extends CActiveRecord
 			'english_content' => 'English Content',
 			'state' => 'State',
 			'district' => 'District',
-			'blog_detail_thumbnail' => 'Blog Detail Thumbnail',
-			'blog_detail_alt' => 'Blog Detail Alt',
+			'detail_thumbnail' => 'Detail Thumbnail',
+			'detail_alt' => 'Detail Alt',
 			'view_count' => 'View Count',
 			'date_added' => 'Date Added',
 			'date_modified' => 'Date Modified',
@@ -101,7 +99,6 @@ class FortBlog extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('fort_category_id',$this->fort_category_id);
 		$criteria->compare('thumbnail',$this->thumbnail,true);
 		$criteria->compare('thumbnail_alt',$this->thumbnail_alt,true);
 		$criteria->compare('title',$this->title,true);
@@ -110,8 +107,8 @@ class FortBlog extends CActiveRecord
 		$criteria->compare('english_content',$this->english_content,true);
 		$criteria->compare('state',$this->state,true);
 		$criteria->compare('district',$this->district,true);
-		$criteria->compare('blog_detail_thumbnail',$this->blog_detail_thumbnail,true);
-		$criteria->compare('blog_detail_alt',$this->blog_detail_alt,true);
+		$criteria->compare('detail_thumbnail',$this->detail_thumbnail,true);
+		$criteria->compare('detail_alt',$this->detail_alt,true);
 		$criteria->compare('view_count',$this->view_count);
 		$criteria->compare('date_added',$this->date_added,true);
 		$criteria->compare('date_modified',$this->date_modified,true);
@@ -128,7 +125,7 @@ class FortBlog extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return FortBlog the static model class
+	 * @return Wars the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
