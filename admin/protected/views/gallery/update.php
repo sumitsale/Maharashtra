@@ -1,38 +1,37 @@
 <?php
-/* @var $this KingsController */
-/* @var $model Kings */
+/* @var $this GalleryController */
+/* @var $model Gallery */
 
 $this->breadcrumbs=array(
-	'Kings'=>array('index'),
+	'Galleries'=>array('index'),
 	$model->title=>array('view','id'=>$model->id),
 	'Update',
 );
 
 $this->menu=array(
-	array('label'=>'List Kings', 'url'=>array('index')),
-	array('label'=>'Create Kings', 'url'=>array('create')),
-	array('label'=>'View Kings', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Kings', 'url'=>array('admin')),
+	array('label'=>'List Gallery', 'url'=>array('index')),
+	array('label'=>'Create Gallery', 'url'=>array('create')),
+	array('label'=>'View Gallery', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Manage Gallery', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Kings <?php echo $model->id; ?></h1>
+<h1>Update Gallery <?php echo $model->id; ?></h1>
 
 <?php //$this->renderPartial('_form', array('model'=>$model)); ?>
 
 <?php
-
 $model->marathi_content =  html_entity_decode($model->marathi_content);
 $model->english_content =  html_entity_decode($model->english_content);
-/* @var $this KingsController */
-/* @var $model Kings */
+/* @var $this GalleryController */
+/* @var $model Gallery */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'kings-form',
+	'id'=>'gallery-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -51,14 +50,12 @@ $model->english_content =  html_entity_decode($model->english_content);
 		<?php echo $form->error($model,'thumbnail'); ?>
 	</div>
 
-<?php if($model->thumbnail != '') { ?>
+	<?php if($model->thumbnail != '') { ?>
 	<div class="row">
-	<a target="_blank" href="<?php echo Yii::app()->baseurl.'../../images/kings/thumbnail/'.$model->thumbnail; ?>"><?php echo $model->thumbnail; ?></a><br>
-	<img src="<?php echo Yii::app()->baseurl.'../../images/kings/thumbnail/'.$model->thumbnail; ?>">
+	<a target="_blank" href="<?php echo Yii::app()->baseurl.'../../images/gallery/thumbnail/'.$model->thumbnail; ?>"><?php echo $model->thumbnail; ?></a><br>
+	<img src="<?php echo Yii::app()->baseurl.'../../images/gallery/thumbnail/'.$model->thumbnail; ?>">
 	</div>
 	<?php } ?>
-
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'thumbnail_alt'); ?>
 		<?php echo $form->textField($model,'thumbnail_alt',array('size'=>60,'maxlength'=>500)); ?>
@@ -72,38 +69,14 @@ $model->english_content =  html_entity_decode($model->english_content);
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'blog_date'); ?>
-		
-		<?php //echo $form->textField($model,'blog_date'); ?>
-
-
-<?php $this->widget('zii.widgets.jui.CJuiDatePicker', array(
-			'name'=>'Kings[blog_date]',
-			'model'=>$model,
-			'value'=>$model->blog_date!='' ? date('Y-m-d', strtotime($model->blog_date)) : '',
-		// additional javascript options for the date picker plugin
-		'options'=>array(
-		'dateFormat'=>'yy-m-dd',
-		'showAnim'=>'fold',
-		'changeYear' => true,
-		'changeMonth' => true
-		
-						),
-						'htmlOptions'=>array(
-							'style'=>'height:20px;',
-							'readonly'=>'true' 
-
-						),
-					));
-
-		?>
-
-		<?php echo $form->error($model,'blog_date'); ?>
+		<?php echo $form->labelEx($model,'description'); ?>
+		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'description'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'marathi_content'); ?>
-				<?php //echo $form->textArea($model,'marathi_content',array('rows'=>6, 'cols'=>50)); ?>
+		<?php //echo $form->textArea($model,'marathi_content',array('rows'=>6, 'cols'=>50)); ?>
 
 <?php $this->widget('application.extensions.extckeditor.ExtCKEditor', array(
 'model'=>$model,
@@ -111,14 +84,12 @@ $model->english_content =  html_entity_decode($model->english_content);
 'language'=>'en', /* default lang, If not declared the language of the project will be used in case of using multiple languages */
 'editorTemplate'=>'full', // Toolbar settings (full, basic, advanced)
 )); ?>
-
-
 		<?php echo $form->error($model,'marathi_content'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'english_content'); ?>
-				<?php //echo $form->textArea($model,'english_content',array('rows'=>6, 'cols'=>50)); ?>
+		<?php //echo $form->textArea($model,'english_content',array('rows'=>6, 'cols'=>50)); ?>
 
 
 <?php $this->widget('application.extensions.extckeditor.ExtCKEditor', array(
@@ -127,16 +98,14 @@ $model->english_content =  html_entity_decode($model->english_content);
 'language'=>'en', /* default lang, If not declared the language of the project will be used in case of using multiple languages */
 'editorTemplate'=>'full', // Toolbar settings (full, basic, advanced)
 )); ?>
-
-		<?php echo $form->error($model,'english_content'); ?>
+	<?php echo $form->error($model,'english_content'); ?>
 	</div>
 
-	<div class="row">
+<div class="row">
 		<?php echo $form->labelEx($model,'state'); ?>
-				<?php //echo $form->textField($model,'state',array('size'=>60,'maxlength'=>500)); ?>
+		<?php //echo $form->textField($model,'state',array('size'=>60,'maxlength'=>500)); ?>
 		<?php echo $form->dropDownList($model,'state',CHtml::listData(
 			$state,'city_state','city_state'),array('prompt'=>'Select State')); ?>
-
 		<?php echo $form->error($model,'state'); ?>
 	</div>
 
@@ -148,27 +117,7 @@ $model->english_content =  html_entity_decode($model->english_content);
 		<?php echo $form->error($model,'district'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'detail_thumbnail'); ?>
-		<?php echo $form->fileField($model,'detail_thumbnail',array('size'=>60,'maxlength'=>500)); ?>
-		<?php echo $form->error($model,'detail_thumbnail'); ?>
-	</div>
-
-
-<?php if($model->detail_thumbnail != '') { ?>
-	<div class="row">
-	<a target="_blank" href="<?php echo Yii::app()->baseurl.'../../images/kings/detail_thumbnail/'.$model->detail_thumbnail; ?>"><?php echo $model->detail_thumbnail; ?></a><br>
-	<img src="<?php echo Yii::app()->baseurl.'../../images/kings/detail_thumbnail/'.$model->detail_thumbnail; ?>">
-	</div>
-	<?php } ?>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'detail_alt'); ?>
-		<?php echo $form->textField($model,'detail_alt',array('size'=>60,'maxlength'=>500)); ?>
-		<?php echo $form->error($model,'detail_alt'); ?>
-	</div>
-<!--
-	<div class="row">
+	<!--<div class="row">
 		<?php echo $form->labelEx($model,'view_count'); ?>
 		<?php echo $form->textField($model,'view_count'); ?>
 		<?php echo $form->error($model,'view_count'); ?>

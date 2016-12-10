@@ -25,15 +25,15 @@ $this->menu=array(
 
 $model->marathi_content =  html_entity_decode($model->marathi_content);
 $model->english_content =  html_entity_decode($model->english_content);
-/* @var $this KingsController */
-/* @var $model Kings */
+/* @var $this warsController */
+/* @var $model wars */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'kings-form',
+	'id'=>'wars-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -46,10 +46,18 @@ $model->english_content =  html_entity_decode($model->english_content);
 
 	<?php echo $form->errorSummary($model); ?>
 
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'thumbnail'); ?>
+		<?php echo $form->fileField($model,'thumbnail',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->error($model,'thumbnail'); ?>
+	</div>
+
+
 <?php if($model->thumbnail != '') { ?>
 	<div class="row">
-	<a target="_blank" href="<?php echo Yii::app()->baseurl.'../../images/kings/thumbnail/'.$model->thumbnail; ?>"><?php echo $model->thumbnail; ?></a><br>
-	<img src="<?php echo Yii::app()->baseurl.'../../images/kings/thumbnail/'.$model->thumbnail; ?>">
+	<a target="_blank" href="<?php echo Yii::app()->baseurl.'../../images/wars/thumbnail/'.$model->thumbnail; ?>"><?php echo $model->thumbnail; ?></a><br>
+	<img src="<?php echo Yii::app()->baseurl.'../../images/wars/thumbnail/'.$model->thumbnail; ?>">
 	</div>
 	<?php } ?>
 
@@ -73,7 +81,7 @@ $model->english_content =  html_entity_decode($model->english_content);
 
 
 <?php $this->widget('zii.widgets.jui.CJuiDatePicker', array(
-			'name'=>'Kings[blog_date]',
+			'name'=>'wars[blog_date]',
 			'model'=>$model,
 			'value'=>$model->blog_date!='' ? date('Y-m-d', strtotime($model->blog_date)) : '',
 		// additional javascript options for the date picker plugin
@@ -152,8 +160,8 @@ $model->english_content =  html_entity_decode($model->english_content);
 
 <?php if($model->detail_thumbnail != '') { ?>
 	<div class="row">
-	<a target="_blank" href="<?php echo Yii::app()->baseurl.'../../images/kings/detail_thumbnail/'.$model->detail_thumbnail; ?>"><?php echo $model->detail_thumbnail; ?></a><br>
-	<img src="<?php echo Yii::app()->baseurl.'../../images/kings/detail_thumbnail/'.$model->detail_thumbnail; ?>">
+	<a target="_blank" href="<?php echo Yii::app()->baseurl.'../../images/wars/detail_thumbnail/'.$model->detail_thumbnail; ?>"><?php echo $model->detail_thumbnail; ?></a><br>
+	<img src="<?php echo Yii::app()->baseurl.'../../images/wars/detail_thumbnail/'.$model->detail_thumbnail; ?>">
 	</div>
 	<?php } ?>
 
