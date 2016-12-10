@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List FortGallry', 'url'=>array('index')),
-	array('label'=>'Create FortGallry', 'url'=>array('create')),
+	array('label'=>'Create FortGallry', 'url'=>array('/fortGallry/create/'.$id)),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -28,6 +28,9 @@ $('.search-form form').submit(function(){
 
 <h1>Manage Fort Gallries</h1>
 
+<h2>
+Gallery Name - <?php echo Gallery::Model()->FindByPk($id)->title; ?>
+</h2>
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
 or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
@@ -42,16 +45,18 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'fort-gallry-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$model->search($id),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'gallery_id',
+		// 'id',
+		// 'gallery_id',
 		'thumbnail',
 		'alt_thumbnail',
+		'title',
 		'date_added',
-		'date',
-		array(
+		
+		'date_modified',
+		 array(
 			'class'=>'CButtonColumn',
 		),
 	),

@@ -13,6 +13,7 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('enctype'=>'multipart/form-data')
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -21,13 +22,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'gallery_id'); ?>
-		<?php echo $form->textField($model,'gallery_id'); ?>
+		<?php echo $form->hiddenField($model,'gallery_id', array('value'=>$id)); ?>
 		<?php echo $form->error($model,'gallery_id'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'thumbnail'); ?>
-		<?php echo $form->textField($model,'thumbnail',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->fileField($model,'thumbnail',array('size'=>60,'maxlength'=>500)); ?>
 		<?php echo $form->error($model,'thumbnail'); ?>
 	</div>
 
@@ -38,17 +39,23 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'title'); ?>
+		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>512)); ?>
+		<?php echo $form->error($model,'title'); ?>
+	</div>
+<!--
+	<div class="row">
 		<?php echo $form->labelEx($model,'date_added'); ?>
 		<?php echo $form->textField($model,'date_added'); ?>
 		<?php echo $form->error($model,'date_added'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'date'); ?>
-		<?php echo $form->textField($model,'date'); ?>
-		<?php echo $form->error($model,'date'); ?>
+		<?php echo $form->labelEx($model,'date_modified'); ?>
+		<?php echo $form->textField($model,'date_modified'); ?>
+		<?php echo $form->error($model,'date_modified'); ?>
 	</div>
-
+-->
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

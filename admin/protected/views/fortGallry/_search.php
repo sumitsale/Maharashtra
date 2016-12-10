@@ -32,13 +32,18 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'title'); ?>
+		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>512)); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'date_added'); ?>
 		<?php echo $form->textField($model,'date_added'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'date'); ?>
-		<?php echo $form->textField($model,'date'); ?>
+		<?php echo $form->label($model,'date_modified'); ?>
+		<?php echo $form->textField($model,'date_modified'); ?>
 	</div>
 
 	<div class="row buttons">

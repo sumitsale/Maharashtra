@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Fort Gallries'=>array('index'),
-	$model->id,
+	$model->title,
 );
 
 $this->menu=array(
@@ -25,7 +25,8 @@ $this->menu=array(
 		'gallery_id',
 		'thumbnail',
 		'alt_thumbnail',
+		'title',
 		'date_added',
-		'date',
+		'date_modified',
 	),
 )); ?>

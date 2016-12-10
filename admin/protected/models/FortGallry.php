@@ -8,8 +8,9 @@
  * @property integer $gallery_id
  * @property string $thumbnail
  * @property string $alt_thumbnail
+ * @property string $title
  * @property string $date_added
- * @property string $date
+ * @property string $date_modified
  */
 class FortGallry extends CActiveRecord
 {
@@ -29,12 +30,13 @@ class FortGallry extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('gallery_id, thumbnail, alt_thumbnail, date_added, date', 'required'),
+			array('gallery_id, thumbnail, alt_thumbnail, title, date_added, date_modified', 'required'),
 			array('gallery_id', 'numerical', 'integerOnly'=>true),
 			array('thumbnail, alt_thumbnail', 'length', 'max'=>500),
+			array('title', 'length', 'max'=>512),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, gallery_id, thumbnail, alt_thumbnail, date_added, date', 'safe', 'on'=>'search'),
+			array('id, gallery_id, thumbnail, alt_thumbnail, title, date_added, date_modified', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,8 +61,9 @@ class FortGallry extends CActiveRecord
 			'gallery_id' => 'Gallery',
 			'thumbnail' => 'Thumbnail',
 			'alt_thumbnail' => 'Alt Thumbnail',
+			'title' => 'Title',
 			'date_added' => 'Date Added',
-			'date' => 'Date',
+			'date_modified' => 'Date Modified',
 		);
 	}
 
@@ -76,21 +79,29 @@ class FortGallry extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($gallery_id)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('gallery_id',$this->gallery_id);
+		//$criteria->compare('gallery_id',$this->gallery_id);
+		
+		if($gallery_id !='') {
+			$criteria->compare('gallery_id',$gallery_id);
+		}
 		$criteria->compare('thumbnail',$this->thumbnail,true);
 		$criteria->compare('alt_thumbnail',$this->alt_thumbnail,true);
+		$criteria->compare('title',$this->title,true);
 		$criteria->compare('date_added',$this->date_added,true);
-		$criteria->compare('date',$this->date,true);
+		$criteria->compare('date_modified',$this->date_modified,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+                        'defaultOrder'=>'id desc',
+                    )
 		));
 	}
 

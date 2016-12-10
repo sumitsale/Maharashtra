@@ -60,7 +60,7 @@ class FortGallryController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($id)
 	{
 		$model=new FortGallry;
 
@@ -70,12 +70,36 @@ class FortGallryController extends Controller
 		if(isset($_POST['FortGallry']))
 		{
 			$model->attributes=$_POST['FortGallry'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+
+			$model->date_added = date("Y-m-d H:i:s");
+			$model->date_modified = date("Y-m-d H:i:s");
+			$model->thumbnail = $_FILES['FortGallry']['name']['thumbnail'] != '' ? $_FILES['FortGallry']['name']['thumbnail'] : '';
+			if($model->save()) {
+
+               if($model->thumbnail !='')
+				{
+					$model->thumbnail=CUploadedFile::getInstance($model,'thumbnail');
+					$model->thumbnail->saveAs(Yii::app()->basePath  . '/../../images/fortgallery/thumbnail/'. $model->thumbnail );			
+					
+					$resize = new ResizeImage(Yii::app()->basePath . '/../../images/fortgallery/thumbnail/'. $model->thumbnail );
+					$resize->resizeTo(1170, 878, 'exact');
+					$resize->saveImage(Yii::app()->basePath . '/../../images/fortgallery/thumbnail/'. $model->thumbnail );
+
+					$resize = new ResizeImage(Yii::app()->basePath . '/../../images/fortgallery/thumbnail/'. $model->thumbnail );
+					$resize->resizeTo(180, 180, 'exact');
+					$resize->saveImage(Yii::app()->basePath . '/../../images/fortgallery/smallthumbnail/'. $model->thumbnail );
+				}
+
+
+					$this->redirect(array('admin','id'=>$model->gallery_id));
+
+			}
+				
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+			'id'=>$id
 		));
 	}
 
@@ -87,15 +111,34 @@ class FortGallryController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+		$thumbnail = $model->thumbnail;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['FortGallry']))
 		{
 			$model->attributes=$_POST['FortGallry'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			$model->date_modified = date("Y-m-d H:i:s");
+			$model->thumbnail = $_FILES['FortGallry']['name']['thumbnail'] != '' ? $_FILES['FortGallry']['name']['thumbnail'] : $thumbnail;
+			if($model->save()) {
+
+
+               if($model->thumbnail !='' && $model->thumbnail != $thumbnail)
+				{
+					$model->thumbnail=CUploadedFile::getInstance($model,'thumbnail');
+					$model->thumbnail->saveAs(Yii::app()->basePath  . '/../../images/fortgallery/thumbnail/'. $model->thumbnail );			
+					
+					$resize = new ResizeImage(Yii::app()->basePath . '/../../images/fortgallery/thumbnail/'. $model->thumbnail );
+					$resize->resizeTo(1170, 878, 'exact');
+					$resize->saveImage(Yii::app()->basePath . '/../../images/fortgallery/thumbnail/'. $model->thumbnail );
+
+					$resize = new ResizeImage(Yii::app()->basePath . '/../../images/fortgallery/thumbnail/'. $model->thumbnail );
+					$resize->resizeTo(180, 180, 'exact');
+					$resize->saveImage(Yii::app()->basePath . '/../../images/fortgallery/smallthumbnail/'. $model->thumbnail );
+				}
+
+			}
+				$this->redirect(array('admin','id'=>$model->gallery_id));
 		}
 
 		$this->render('update',array(
@@ -131,7 +174,7 @@ class FortGallryController extends Controller
 	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
+	public function actionAdmin($id)
 	{
 		$model=new FortGallry('search');
 		$model->unsetAttributes();  // clear any default values
@@ -140,6 +183,7 @@ class FortGallryController extends Controller
 
 		$this->render('admin',array(
 			'model'=>$model,
+			'id'=>$id
 		));
 	}
 

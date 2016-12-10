@@ -52,8 +52,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'state',
 		'district',
 		'view_count',
-		'date_added',
-		'date_modified',
+		array(
+				'class'=>'CLinkColumn',
+				'label'=>'fort-gallery',
+				'urlExpression'=>'Yii::app()->createUrl("fortGallry/admin",array("id"=>$data->id))',
+				'header'=>'History',
+				),
+
+		// 'date_added',
+		// 'date_modified',
 	//	'description',
 	//	'marathi_content',
 		/*

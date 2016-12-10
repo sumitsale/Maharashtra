@@ -21,12 +21,16 @@
 	<?php echo CHtml::encode($data->alt_thumbnail); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('title')); ?>:</b>
+	<?php echo CHtml::encode($data->title); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('date_added')); ?>:</b>
 	<?php echo CHtml::encode($data->date_added); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('date')); ?>:</b>
-	<?php echo CHtml::encode($data->date); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('date_modified')); ?>:</b>
+	<?php echo CHtml::encode($data->date_modified); ?>
 	<br />
 
 
