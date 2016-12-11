@@ -27,9 +27,29 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+
+		$commanModel = new Commanmodel();
+
+		$fort_blogs = $commanModel->fetch_data('fort_blog',5,0,'id','desc');
+		$kings = $commanModel->fetch_data('kings',3,0,'id','desc');
+		$wars = $commanModel->fetch_data('wars',5,0,'id','desc');
+		$fort_gallerys = $commanModel->fetch_data('fort_gallry',6,0,'id','desc');
+
+		$popular_fort_blogs = $commanModel->fetch_data('fort_blog',4,0,'view_count','desc');
+		$resent_fort_blogs = $commanModel->fetch_data('fort_blog',4,0,'id','desc');
+		$gallery = $commanModel->fetch_data('gallery',4,0,'id','desc');
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$this->render('index',array(
+			'fort_blogs' => $fort_blogs,
+			'kings' => $kings,
+			'wars' => $wars,
+			'fort_gallerys' => $fort_gallerys,
+			'popular_fort_blogs' => $popular_fort_blogs,
+			'resent_fort_blogs' => $resent_fort_blogs,
+			'gallery' => $gallery
+
+		));
 	}
 
 	/**

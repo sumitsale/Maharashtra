@@ -30,13 +30,15 @@
               </header>
               <!-- Widget Contents -->
               <div class="content row">
-                <div class="col-sm-6 article-medium">    
+                
+				
+				<div class="col-sm-6 article-medium">    
                   <!--frame-->
                   <div class="frame">
                     <!--image-->
-                    <a class="image" href="#">
+                    <a class="image" href="javascript::void(0);">
                       <figure class="image-holder">
-                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/ulm-58271-medium.jpg" alt="ulm town home cathedral square quantitative mass">
+                        <img src="<?php echo Yii::app()->baseurl.'../images/fort/thumbnail/'.$fort_blogs[0]['thumbnail']; ?>" alt="<?php echo $fort_blogs[0]['thumbnail_alt']; ?>">
                       </figure>
                       <div class="image-light">
                       </div>
@@ -46,32 +48,34 @@
                   </div>
                   <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" class="shadow" alt="shadow">
                   <h4>
-                    <a href="#">Ulm Town Home Cathedral Square Quantitative Mass
+                    <a href="javascript::void0);"><?php echo $fort_blogs[0]['title']; ?>
                     </a>
                   </h4>
                   <p class="post-meta">
                     <a href="#">
                       <span class="fa fa-clock-o">
-                      </span> December 4, 2013
+                      </span> <?php echo date('F m, Y', strtotime($fort_blogs[0]['blog_date']));?>
                     </a> 
-                      <a href="#"><span class="fa fa-folder"></span> Folder Name </a>
+                     <!-- <a href="#"><span class="fa fa-folder"></span> Folder Name </a>-->
                     <a href="#">
                       <span class="fa fa-eye">
-                      </span> 4,448 views
+                      </span> <?php echo $fort_blogs[0]['view_count']; ?> views
                     </a>
                   </p>
                   <!--content-->
                   <p>
-                    Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-                    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint. in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint...
+					<?php echo substr(strip_tags($fort_blogs[0]['english_content']),0,220).'...'; ?>
                   </p>
                   <hr>
                 </div>
-                <div class="col-sm-6 article-tiny">
+                
+				
+				<?php for($i= 1; $i < count($fort_blogs); $i++) { ?>
+				<div class="col-sm-6 article-tiny">
                   <!-- image -->
                   <a href="#" class="image">
                     <figure class="image-holder">
-                      <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/morocco-123957-tiny.jpg" alt="morocco africa rally desert marroc sand dunes morocco africa rally  ">
+                      <img width="95px;" height="75px;" src="<?php echo Yii::app()->baseurl.'../images/fort/thumbnail/'.$fort_blogs[$i]['thumbnail']; ?>" alt="<?php echo $fort_blogs[$i]['thumbnail_alt']; ?>">
                     </figure>
                     <div class="image-light">
                     </div>
@@ -80,110 +84,23 @@
                   </a>
                   <!--content-->
                   <h5>
-                    <a href="#">Morocco Africa Rally Desert Marroc Sand Dunes Morocco Africa Rally
+                    <a href="#"><?php echo $fort_blogs[$i]['title']; ?>
                     </a>
                   </h5>
                   <p class="post-meta">
                     <a href="#">
                       <span class="fa fa-clock-o">
-                      </span> Dec 4, 2013
+                      </span> <?php echo date('F m, Y', strtotime($fort_blogs[$i]['blog_date']));?>
                     </a> 
-                    <a href="#"><span class="fa fa-folder"></span> Folder Name </a>
+                   <!-- <a href="#"><span class="fa fa-folder"></span> Folder Name </a>-->
                     <a href="#">
                       <span class="fa fa-eye">
-                      </span> 4,448
+                      </span> <?php echo $fort_blogs[$i]['view_count'];?>
                     </a>
                   </p>
                   <hr>
                 </div>
-                <div class="col-sm-6 article-tiny">
-                  <!--image-->
-                  <a href="#" class="image">
-                    <figure class="image-holder">
-                      <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/unsplash_528cba6de78e5_1-tiny.jpg" alt="Mauris mattis ullamcorper euismod Nulla convallis ">
-                    </figure>
-                    <div class="image-light">
-                    </div>
-                    <span class="dashicons dashicons-format-aside">
-                    </span>
-                  </a>
-                  <!--content-->
-                  <h5>
-                    <a href="#">Mauris Mattis Ullamcorper Euismod Nulla Convallis
-                    </a>
-                  </h5>
-                  <p class="post-meta">
-                    <a href="#">
-                      <span class="fa fa-clock-o">
-                      </span> Dec 4, 2013
-                    </a> 
-                    <a href="#"><span class="fa fa-folder"></span> Folder Name </a>
-                    <a href="#">
-                      <span class="fa fa-eye">
-                      </span> 4,448
-                    </a>
-                  </p>
-                  <hr>
-                </div>
-                <div class="col-sm-6 article-tiny">
-                  <!--image-->
-                  <a href="#" class="image">
-                    <figure class="image-holder">
-                      <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/nepal-397-tiny.jpg" alt="Nepal Kathmandu Road Center Chaotic">
-                    </figure>
-                    <div class="image-light">
-                    </div>
-                    <span class="dashicons dashicons-format-audio">
-                    </span>
-                  </a>
-                  <!--content-->
-                  <h5>
-                    <a href="#">Nepal Kathmandu Road Center Chaotic
-                    </a>
-                  </h5>
-                  <p class="post-meta">
-                    <a href="#">
-                      <span class="fa fa-clock-o">
-                      </span> Dec 4, 2013
-                    </a> 
-                    <a href="#"><span class="fa fa-folder"></span> Folder Name </a>
-                    <a href="#">
-                      <span class="fa fa-eye">
-                      </span> 4,448
-                    </a>
-                  </p>
-                  <hr>
-                </div>
-                
-                <div class="col-sm-6 article-tiny">
-                  <!--image-->
-                  <a href="#" class="image">
-                    <figure class="image-holder">
-                      <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/unsplash_528cba6de78e5_1-tiny.jpg" alt="Mauris mattis ullamcorper euismod Nulla convallis ">
-                    </figure>
-                    <div class="image-light">
-                    </div>
-                    <span class="dashicons dashicons-format-aside">
-                    </span>
-                  </a>
-                  <!--content-->
-                  <h5>
-                    <a href="#">Mauris Mattis Ullamcorper Euismod Nulla Convallis
-                    </a>
-                  </h5>
-                  <p class="post-meta">
-                    <a href="#">
-                      <span class="fa fa-clock-o">
-                      </span> Dec 4, 2013
-                    </a> 
-                   <a href="#"><span class="fa fa-folder"></span> Folder Name </a>
-                    <a href="#">
-                      <span class="fa fa-eye">
-                      </span> 4,448
-                    </a>
-                  </p>
-                  <hr>
-                </div>
+				<?php } ?>
               </div>
               <!--.content-->
             </section>
@@ -201,6 +118,8 @@
                <a href="#"> <h4>Kings </h4> </a>
                 <a href="#" class="control"> <i class="fa fa-plus"> </i> </a>
               </header>
+			  
+			  <?php for($i=0;$i<count($kings);$i++) { ?>
               <div class="article-medium">
                 <div class="row">
                   <!--Image-->
@@ -208,7 +127,7 @@
                     <div class="frame">
                       <a class="image" href="#">
                         <figure class="image-holder">
-                          <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/coffee-206142-medium.jpg" alt="Coffee eros non risus suscipit faucibus Sed quis">
+                          <img src="<?php echo Yii::app()->baseurl.'../images/kings/thumbnail/'.$kings[$i]['thumbnail']; ?>" alt="<?php echo $kings[$i]['thumbnail_alt']; ?>">
                         </figure>
                         <div class="image-light">
                         </div>
@@ -221,104 +140,25 @@
                   <!--Content-->
                   <div class="col-sm-6">
                     <h4>
-                      <a href="#">Coffee Eros Non Risus Suscipit Faucibus Sed Quis
+                      <a href="#"><?php echo $kings[$i]['title']; ?>
                       </a>
                     </h4>
                     <p class="post-meta">
                       <a href="#">
                         <span class="fa fa-clock-o">  </span> Dec 4, 2013 </a> 
-                      <a href="#"> <span class="fa fa-folder"> </span> Bussiness </a> 
-                      <a href="#"> <span class="fa fa-comments"> </span> 1,324 </a> 
-                      <a href="#"> <span class="fa fa-eye"> </span> 4,448 </a>
+                      <!--<a href="#"> <span class="fa fa-folder"> </span> Bussiness </a> 
+                      <a href="#"> <span class="fa fa-comments"> </span> 1,324 </a> -->
+                      <a href="#"> <span class="fa fa-eye"> </span> <?php echo $kings[$i]['view_count']; ?> </a>
                     </p>
                     <p>
-                      Proin bibendum, libero in dictum pellentesque, lorem enim varius tellus, nec aliquet 
-                      dolor risus non sem. Curabitur placerat, quam vel bibendum pretium, arcu dui c
-                      onsectetur tellus, et tincidunt turpis... 
+					<?php echo substr(strip_tags($kings[$i]['english_content']),0,245).'...'; ?> 
                     </p>                                    
                   </div>
                 </div>
               </div>
               <hr>
-              <div class="article-medium">
-                <div class="row">
-                  <!--Image-->
-                  <div class="col-sm-6">
-                    <div class="frame">
-                      <a class="image" href="#">
-                        <figure class="image-holder">
-                          <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/branches-238379-medium.jpg" alt="branches eros quam ultricies et condimentum a porta quis neque">
-                        </figure>
-                        <div class="image-light">
-                        </div>                                                                                                
-                        <span class="dashicons dashicons-format-gallery">
-                        </span>
-                      </a>
-                    </div>
-                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" class="shadow" alt="shadow">                                    
-                  </div>
-                  <!--Content-->
-                  <div class="col-sm-6">
-                    <h4>
-                      <a href="#">Branches Eros Quam Ultricies Et Condimentum A Porta Quis Neque
-                      </a>
-                    </h4>
-                    <p class="post-meta">
-                      <a href="#">
-                        <span class="fa fa-clock-o">
-                        </span> Dec 4, 2013
-                      </a> 
-              <a href="#"><span class="fa fa-folder"></span> Folder Name </a>
-                      <a href="#"> <span class="fa fa-eye"> </span> 4,448 </a>
-                    </p>
-                    <p>
-                      Vivamus fermentum, mi nec convallis congue Sed do eiusmod tempor incididunt ut labore et, 
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea consequat. Duis aute 
-                      Mauris ac nisl nunc... 
-                    </p>                                    
-                  </div>
-                </div>
-              </div>
-              <hr>
-              <div class="article-medium">
-                <div class="row">
-                  <!--Image-->
-                  <div class="col-sm-6">
-                    <div class="frame">
-                      <a class="image" href="#">
-                        <figure class="image-holder">
-                          <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/boat-20557-medium.jpg" alt="boat dui accumsan velit vel tincidunt dui leo et dui">
-                        </figure>
-                        <div class="image-light">
-                        </div>                                                                                                
-                        <span class="dashicons dashicons-format-image">
-                        </span>
-                      </a>
-                    </div>
-                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" class="shadow" alt="shadow">                                    
-                  </div>
-                  <!--Content-->
-                  <div class="col-sm-6">
-                    <h4>
-                      <a href="#">Boat Dui Accumsan Velit Vel Dincidunt Dui Leo Et Dui
-                      </a>
-                    </h4>
-                    <p class="post-meta">
-                      <a href="#">
-                        <span class="fa fa-clock-o">
-                        </span> Dec 4, 2013 </a> 
-                    <a href="#"><span class="fa fa-folder"></span> Folder Name </a>
-                      <a href="#"> <span class="fa fa-eye"> </span> 4,448 </a>
-                    </p>
-                    <p>
-                      Vivamus fermentum, mi nec convallis congue Sed do eiusmod tempor incididunt ut labore et, 
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea consequat. Duis aute 
-                      Mauris ac nisl nunc... 
-                    </p>                                    
-                  </div>
-                </div>
-              </div>
-              <hr>
+			  <?php } ?>
+			  
             </section>
               
             <section class="widget articles-v2">
@@ -339,7 +179,7 @@
                     <!--image-->
                     <a class="image" href="#">
                       <figure class="image-holder">
-                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/ulm-58271-medium.jpg" alt="ulm town home cathedral square quantitative mass">
+                             <img src="<?php echo Yii::app()->baseurl.'../images/wars/thumbnail/'.$wars[0]['thumbnail']; ?>" alt="<?php echo $wars[0]['thumbnail_alt']; ?>">
                       </figure>
                       <div class="image-light">
                       </div>
@@ -349,35 +189,36 @@
                   </div>
                   <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" class="shadow" alt="shadow">
                   <h4>
-                    <a href="#">Ulm Town Home Cathedral Square Quantitative Mass
+                    <a href="#"><?php echo $wars[0]['title']; ?>
                     </a>
                   </h4>
                   <p class="post-meta">
                     <a href="#">
                       <span class="fa fa-clock-o">
-                      </span> December 4, 2013
+                      </span> <?php echo date('F m, Y', strtotime($wars[0]['blog_date']));?>
                     </a> 
-                      <a href="#">
+              <!--        <a href="#">
                           <span class="fa fa-folder">
                           </span> Folder Name
-                        </a>
+                        </a>-->
                     <a href="#">
                       <span class="fa fa-eye">
-                      </span> 4,448 views
+                      </span> <?php echo $wars[0]['view_count'];?> views
                     </a>
                   </p>
                   <!--content-->
                   <p>
-                    Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-                    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint. in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint... 
+
+				  <?php echo substr(strip_tags($wars[0]['english_content']),0,220).'...'; ?>
                   </p>
                   <hr>
                 </div>
+				<?php for($i=1;$i<count($wars);$i++) { ?>
                 <div class="col-sm-6 article-tiny">
                   <!-- image -->
                   <a href="#" class="image">
                     <figure class="image-holder">
-                      <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/morocco-123957-tiny.jpg" alt="morocco africa rally desert marroc sand dunes morocco africa rally  ">
+							<img width="95px;" height="75px;" src="<?php echo Yii::app()->baseurl.'../images/wars/thumbnail/'.$wars[$i]['thumbnail']; ?>" alt="<?php echo $wars[$i]['thumbnail_alt']; ?>">
                     </figure>
                     <div class="image-light">
                     </div>
@@ -386,113 +227,26 @@
                   </a>
                   <!--content-->
                   <h5>
-                    <a href="#">Morocco Rahul Rally Desert Marroc Sand Dunes Morocco Africa Rally
+                    <a href="#"><?php echo $wars[$i]['title']; ?>
                     </a>
                   </h5>
                   <p class="post-meta">
                     <a href="#">
                       <span class="fa fa-clock-o">
-                      </span> Dec 4, 2013
+                      </span> <?php echo date('F m, Y', strtotime($wars[$i]['blog_date']));?>
                     </a> 
-                    <a href="#">
+                    <!--<a href="#">
                           <span class="fa fa-folder">
                           </span> Travel
-                        </a>
+                        </a>-->
                     <a href="#">
                       <span class="fa fa-eye">
-                      </span> 4,448
+                      </span><?php echo $wars[$i]['view_count'];?>
                     </a>
                   </p>
                   <hr>
                 </div>
-                <div class="col-sm-6 article-tiny">
-                  <!--image-->
-                  <a href="#" class="image">
-                    <figure class="image-holder">
-                      <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/unsplash_528cba6de78e5_1-tiny.jpg" alt="Mauris mattis ullamcorper euismod Nulla convallis ">
-                    </figure>
-                    <div class="image-light">
-                    </div>
-                    <span class="dashicons dashicons-format-aside">
-                    </span>
-                  </a>
-                  <!--content-->
-                  <h5>
-                    <a href="#">Mauris Mattis Ullamcorper Euismod Nulla Convallis
-                    </a>
-                  </h5>
-                  <p class="post-meta">
-                    <a href="#">
-                      <span class="fa fa-clock-o">
-                      </span> Dec 4, 2013
-                    </a> 
-                   <a href="#"><span class="fa fa-folder"></span> Folder Name </a>
-                    <a href="#">
-                      <span class="fa fa-eye">
-                      </span> 4,448
-                    </a>
-                  </p>
-                  <hr>
-                </div>
-                <div class="col-sm-6 article-tiny">
-                  <!--image-->
-                  <a href="#" class="image">
-                    <figure class="image-holder">
-                      <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/nepal-397-tiny.jpg" alt="Nepal Kathmandu Road Center Chaotic">
-                    </figure>
-                    <div class="image-light">
-                    </div>
-                    <span class="dashicons dashicons-format-audio">
-                    </span>
-                  </a>
-                  <!--content-->
-                  <h5>
-                    <a href="#">Nepal Kathmandu Road Center Chaotic
-                    </a>
-                  </h5>
-                  <p class="post-meta">
-                    <a href="#">
-                      <span class="fa fa-clock-o">
-                      </span> Dec 4, 2013
-                    </a> 
-                    <a href="#"><span class="fa fa-folder"></span> Folder Name </a>
-                    <a href="#">
-                      <span class="fa fa-eye">
-                      </span> 4,448
-                    </a>
-                  </p>
-                  <hr>
-                </div>
-                
-                <div class="col-sm-6 article-tiny">
-                  <!--image-->
-                  <a href="#" class="image">
-                    <figure class="image-holder">
-                      <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/unsplash_528cba6de78e5_1-tiny.jpg" alt="Mauris mattis ullamcorper euismod Nulla convallis ">
-                    </figure>
-                    <div class="image-light">
-                    </div>
-                    <span class="dashicons dashicons-format-aside">
-                    </span>
-                  </a>
-                  <!--content-->
-                  <h5>
-                    <a href="#">Mauris Mattis Ullamcorper Euismod Nulla Convallis
-                    </a>
-                  </h5>
-                  <p class="post-meta">
-                    <a href="#">
-                      <span class="fa fa-clock-o">
-                      </span> Dec 4, 2013
-                    </a> 
-                    <a href="#"><span class="fa fa-folder"></span> Folder Name </a>
-                    <a href="#">
-                      <span class="fa fa-eye">
-                      </span> 4,448
-                    </a>
-                  </p>
-                  <hr>
-                </div>
+				<?php } ?>
               </div>
               <!--.content-->
             </section>
@@ -922,76 +676,21 @@
             <div class="tab-pane active" id="gallery">
               <div class="slider-container">
                 <ul class="da-thumbs">
-                  <li>
+ 
+			<?php for($i=0;$i<count($fort_gallerys);$i++) { ?>
+				<li>
                     <a href="gallery.html" title="Raigad Fort">
-                      <div data-src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/berries-gallery.jpg" data-alt="">
+                      <div data-src="<?php echo Yii::app()->baseurl.'../images/fortgallery/smallthumbnail/'.$fort_gallerys[$i]['thumbnail']; ?>" data-alt="<?php echo $fort_gallerys[$i]['alt_thumbnail']?>">
                       </div>
                       <div class="image-caption">
-                        <h5>Mauris venenatis facilisis sem vel feugiat enim gravida vitae</h5>
+                        <h5><?php echo $fort_gallerys[$i]['title'];?></h5>
                       </div>
                       <span class="image-light">
                       </span>
                     </a>
                   </li>
-                  <li>
-                    <a href="gallery.html" title="Raigad Fort">
-                      <div data-src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/stones-hi-res-gallery.jpg" data-alt="">
-                      </div>
-                      <div class="image-caption">
-                        <h5>Maecenas ac quam tortor Integer sed ullamcorper justo</h5>
-                      </div>
-                      <span class="image-light">
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="gallery.html" title="Raigad Fort">
-                      <div data-src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/hazy-trees-gallery.jpg" data-alt="">
-                      </div>
-                      <div class="image-caption">
-                        <h5>Placerat sollicitudin purus. Fusce sit amet ullamcorper
-                        </h5>
-                      </div>
-                      <span class="image-light">
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                     <a href="gallery.html" title="Raigad Fort">
-                      <div data-src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/tracks-gallery.jpg" data-alt="">
-                      </div>
-                      <div class="image-caption">
-                        <h5>Donec tincidunt sem ligula eget tristique nisl mollis sed
-                        </h5>
-                      </div>
-                      <span class="image-light">
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                     <a href="gallery.html" title="Raigad Fort">
-                      <div data-src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/hochbunker-gallery.jpg" data-alt="">
-                      </div>
-                      <div class="image-caption">
-                        <h5>Curabitur ultricies leo eget elit ornare eu fermentum
-                        </h5>
-                      </div>
-                      <span class="image-light">
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                     <a href="gallery.html" title="Raigad Fort">
-                      <div data-src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/park-place-gallery.jpg" data-alt="">
-                      </div>
-                      <div class="image-caption">
-                        <h5>Aliquam mattis volutpat nisi
-                        </h5>
-                      </div>
-                      <span class="image-light">
-                      </span>
-                    </a>
-                  </li>
+                  
+				  <?php } ?>
                   </ul>
               </div>                                                        
             </div>
