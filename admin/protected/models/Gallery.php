@@ -35,7 +35,7 @@ class Gallery extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('thumbnail, thumbnail_alt, title, description, marathi_content, english_content, state, district, view_count, date_added, date_modified', 'required'),
+			array('thumbnail, thumbnail_alt, title, description,blog_date, marathi_content, english_content, state, district, view_count, date_added, date_modified', 'required'),
 			array('view_count', 'numerical', 'integerOnly'=>true),
 			array('thumbnail, thumbnail_alt, title', 'length', 'max'=>500),
 			array('state, district', 'length', 'max'=>256),
@@ -67,6 +67,7 @@ class Gallery extends CActiveRecord
 			'thumbnail_alt' => 'Thumbnail Alt',
 			'title' => 'Title',
 			'description' => 'Description',
+			'blog_date' => 'Blog Date',
 			'marathi_content' => 'Marathi Content',
 			'english_content' => 'English Content',
 			'state' => 'State',
@@ -100,6 +101,7 @@ class Gallery extends CActiveRecord
 		$criteria->compare('thumbnail_alt',$this->thumbnail_alt,true);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
+		$criteria->compare('blog_date',$this->description,true);
 		$criteria->compare('marathi_content',$this->marathi_content,true);
 		$criteria->compare('english_content',$this->english_content,true);
 		$criteria->compare('state',$this->state,true);

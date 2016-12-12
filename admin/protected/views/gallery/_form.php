@@ -44,6 +44,38 @@
 		<?php echo $form->error($model,'description'); ?>
 	</div>
 
+		<div class="row">
+		<?php echo $form->labelEx($model,'blog_date'); ?>
+		
+		<?php //echo $form->textField($model,'blog_date'); ?>
+
+
+<?php $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+			'name'=>'Gallery[blog_date]',
+			'model'=>$model,
+			'value'=>$model->blog_date!='' ? date('Y-m-d', strtotime($model->blog_date)) : '',
+		// additional javascript options for the date picker plugin
+		'options'=>array(
+		'dateFormat'=>'yy-m-dd',
+		'showAnim'=>'fold',
+		'changeYear' => true,
+		'changeMonth' => true
+		
+						),
+						'htmlOptions'=>array(
+							'style'=>'height:20px;',
+							'readonly'=>'true' 
+
+						),
+					));
+
+		?>
+
+		<?php echo $form->error($model,'blog_date'); ?>
+	</div>
+
+
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'marathi_content'); ?>
 		<?php //echo $form->textArea($model,'marathi_content',array('rows'=>6, 'cols'=>50)); ?>

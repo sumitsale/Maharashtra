@@ -40,6 +40,9 @@ class SiteController extends Controller
 		$gallery = $commanModel->fetch_data('gallery',4,0,'id','desc');
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
+
+		// echo "<pre>";
+		// print_r($resent_fort_blogs);exit;
 		$this->render('index',array(
 			'fort_blogs' => $fort_blogs,
 			'kings' => $kings,
