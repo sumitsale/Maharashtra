@@ -80,7 +80,7 @@
 															<?php if($page == $i) { ?>
 																<li class="active"><span><?php echo $i; ?></span></li>
 															<?php }  else { ?>
-																<li><a href="<?php echo Yii::app()->createUrl('blog/index', array('page'=>$i))?>"><?php echo $i; ?></a></li>			
+																<li><a href="<?php echo Yii::app()->createUrl('blog/category', array('category'=>$category,'page'=>$i))?>"><?php echo $i; ?></a></li>			
 															<?php } ?>
 															
 														<?php } ?>

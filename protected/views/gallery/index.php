@@ -20,6 +20,7 @@
                                                         <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" alt="shadow" class="shadow">                                                        
                                                 </section>
                                                 
+												<?php for($i=0;$i<count($fort_blogs);$i++) { ?>
                                                 <article class="article-medium">
                                                         <div class="row">
                                                                 <!--Image-->
@@ -27,7 +28,7 @@
                                                                         <div class="frame">
                                                                                 <a class="image" href="#">
                                                                                         <figure class="image-holder">
-                                                                                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/unsplash_527bf4b4ae00d_1-medium.jpg" alt="Est Qui Dolorem Quia Dol Consectetur Amet Adipisci Velit Sed">
+                                                                                                <img src="<?php echo Yii::app()->baseurl.'../images/fort/thumbnail/'.$fort_blogs[$i]['thumbnail']; ?>" alt="<?php echo $fort_blogs[$i]['thumbnail_alt']; ?>">
                                                                                         </figure>
                                                                                         <div class="image-light"></div>
                                                                                         <span class="dashicons dashicons-format-gallery"></span>
@@ -38,17 +39,15 @@
 
                                                                 <!--Content-->
                                                                 <div class="col-sm-6">
-                                                                        <h4><a href="#">Est Qui Dolorem Quia Dol Consectetur Amet Adipisci Velit Sed</a></h4>
+                                                                        <h4><a href="#"><?php echo $fort_blogs[$i]['title']; ?></a></h4>
                                                                         <p class="post-meta">
-                                                                                <a href="#"><span class="fa fa-clock-o"></span> December 4, 2013</a> 
-                                                                                <a href="#"><span class="fa fa-user"></span> FriskaMax</a> 
-                                                                                <a href="#"><span class="fa fa-comments"></span> 1,324</a> 
-                                                                                <a href="#"><span class="fa fa-eye"></span> 4,448</a>
+                                                                                <a href="#"><span class="fa fa-clock-o"></span> <?php echo date('F m, Y', strtotime($fort_blogs[$i]['blog_date']));?></a> 
+                                                                                <!--<a href="#"><span class="fa fa-user"></span> FriskaMax</a> -->
+                                                                                <a href="#"><span class="fa fa-comments"></span> <?php echo $fort_blogs[$i]['view_count']; ?></a> 
+                                                                                <!--<a href="#"><span class="fa fa-eye"></span> 4,448</a>-->
                                                                         </p>
                                                                         <p>
-                                                                                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                                                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea consequat. Duis aute irure 
-                                                                                reprehenderit...
+                                                                                <?php echo substr(strip_tags($fort_blogs[$i]['english_content']),0,220).'...'; ?>
                                                                         </p>                                    
                                                                 </div>
                                                         </div>
@@ -62,275 +61,28 @@
                                                         </div>
                                                 </article>      
 
-                                                <article class="article-medium">
-                                                        <div class="row">
-                                                                <!--Image-->
-                                                                <div class="col-sm-6">
-                                                                        <div class="frame">
-                                                                                <a class="image" href="#">
-                                                                                        <figure class="image-holder">
-                                                                                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/unsplash_527bf56961712_1-medium.jpg" alt="Id urna at magna dignissim sodales ante Vestibulum primis in faucibus">
-                                                                                        </figure>
-                                                                                        <div class="image-light"></div>
-                                                                                        <span class="dashicons dashicons-format-image"></span>
-                                                                                </a>
-                                                                        </div>
-                                                                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" class="shadow" alt="shadow">                                    
-                                                                </div>
-
-                                                                <!--Content-->
-                                                                <div class="col-sm-6">
-                                                                        <h4><a href="#">Id urna at magna dignissim sodales ante Vestibulum primis in faucibus</a></h4>
-                                                                        <p class="post-meta">
-                                                                                <a href="#"><span class="fa fa-clock-o"></span> December 4, 2013</a> 
-                                                                                <a href="#"><span class="fa fa-user"></span> FriskaMax</a> 
-                                                                                <a href="#"><span class="fa fa-comments"></span> 1,324</a> 
-                                                                                <a href="#"><span class="fa fa-eye"></span> 4,448</a>
-                                                                        </p>
-                                                                        <p>
-                                                                                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                                                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea consequat. Duis aute irure 
-                                                                                reprehenderit...
-                                                                        </p>                                    
-                                                                </div>
-                                                        </div>
-
-                                                        <!--Footer-->
-                                                        <div class="footer">
-                                                              
-                                                                <div class="read-more">
-                                                                        <button class="btn btn-primary btn-sm">Read More</button> 
-                                                                </div>
-                                                        </div>
-                                                </article>      
-
-                                                <article class="article-medium">
-                                                        <div class="row">
-                                                                <!--Image-->
-                                                                <div class="col-sm-6">
-                                                                        <div class="frame">
-                                                                                <a class="image" href="#">
-                                                                                        <figure class="image-holder">
-                                                                                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/unsplash_528a8fb8a276d_1-medium.jpg" alt="Praesent rutrum diam leo vel pulvinar nisi viverra non">
-                                                                                        </figure>
-                                                                                        <div class="image-light"></div>
-                                                                                        <span class="dashicons dashicons-format-video"></span>
-                                                                                </a>
-                                                                        </div>
-                                                                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" class="shadow" alt="shadow">                                    
-                                                                </div>
-
-                                                                <!--Content-->
-                                                                <div class="col-sm-6">
-                                                                        <h4><a href="#">Praesent rutrum diam leo vel pulvinar nisi viverra non</a></h4>
-                                                                        <p class="post-meta">
-                                                                                <a href="#"><span class="fa fa-clock-o"></span> December 4, 2013</a> 
-                                                                                <a href="#"><span class="fa fa-user"></span> FriskaMax</a> 
-                                                                                <a href="#"><span class="fa fa-comments"></span> 1,324</a> 
-                                                                                <a href="#"><span class="fa fa-eye"></span> 4,448</a>
-                                                                        </p>
-                                                                        <p>
-                                                                                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                                                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea consequat. Duis aute irure 
-                                                                                reprehenderit...
-                                                                        </p>                                    
-                                                                </div>
-                                                        </div>
-
-                                                        <!--Footer-->
-                                                        <div class="footer">
-                                                                
-                                                                <div class="read-more">
-                                                                        <button class="btn btn-primary btn-sm">Read More</button> 
-                                                                </div>
-                                                        </div>
-                                                </article>      
-
-                                                <article class="article-medium">
-                                                        <div class="row">
-                                                                <!--Image-->
-                                                                <div class="col-sm-6">
-                                                                        <div class="frame">
-                                                                                <a class="image" href="#">
-                                                                                        <figure class="image-holder">
-                                                                                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/unsplash_52bf2bb8d2dd0_1-medium.jpg" alt="Accumsan rhoncus libero feugiat id Cras mollis leo pretium">
-                                                                                        </figure>
-                                                                                        <div class="image-light"></div>
-                                                                                        <span class="dashicons dashicons-format-audio"></span>
-                                                                                </a>
-                                                                        </div>
-                                                                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" class="shadow" alt="shadow">                                    
-                                                                </div>
-
-                                                                <!--Content-->
-                                                                <div class="col-sm-6">
-                                                                        <h4><a href="#">Accumsan rhoncus libero feugiat id Cras mollis leo pretium</a></h4>
-                                                                        <p class="post-meta">
-                                                                                <a href="#"><span class="fa fa-clock-o"></span> December 4, 2013</a> 
-                                                                                <a href="#"><span class="fa fa-user"></span> FriskaMax</a> 
-                                                                                <a href="#"><span class="fa fa-comments"></span> 1,324</a> 
-                                                                                <a href="#"><span class="fa fa-eye"></span> 4,448</a>
-                                                                        </p>
-                                                                        <p>
-                                                                                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                                                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea consequat. Duis aute irure 
-                                                                                reprehenderit...
-                                                                        </p>                                    
-                                                                </div>
-                                                        </div>
-
-                                                        <!--Footer-->
-                                                        <div class="footer">
-                                                               
-                                                                <div class="read-more">
-                                                                        <button class="btn btn-primary btn-sm">Read More</button> 
-                                                                </div>
-                                                        </div>
-                                                </article>      
-
-                                                <article class="article-medium">
-                                                        <div class="row">
-                                                                <!--Image-->
-                                                                <div class="col-sm-6">
-                                                                        <div class="frame">
-                                                                                <a class="image" href="#">
-                                                                                        <figure class="image-holder">
-                                                                                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/mountain-hi-res-medium.jpg" alt="Mountain porta venenatis Integer vehicula purus eget gravida">
-                                                                                        </figure>
-                                                                                        <div class="image-light"></div>
-                                                                                        <span class="dashicons dashicons-format-quote"></span>
-                                                                                </a>
-                                                                        </div>
-                                                                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" class="shadow" alt="shadow">                                    
-                                                                </div>
-
-                                                                <!--Content-->
-                                                                <div class="col-sm-6">
-                                                                        <h4><a href="#">Mountain porta venenatis Integer vehicula purus eget gravida</a></h4>
-                                                                        <p class="post-meta">
-                                                                                <a href="#"><span class="fa fa-clock-o"></span> December 4, 2013</a> 
-                                                                                <a href="#"><span class="fa fa-user"></span> FriskaMax</a> 
-                                                                                <a href="#"><span class="fa fa-comments"></span> 1,324</a> 
-                                                                                <a href="#"><span class="fa fa-eye"></span> 4,448</a>
-                                                                        </p>
-                                                                        <p>
-                                                                                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                                                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea consequat. Duis aute irure 
-                                                                                reprehenderit...
-                                                                        </p>                                    
-                                                                </div>
-                                                        </div>
-
-                                                        <!--Footer-->
-                                                        <div class="footer">
-                                                               
-                                                                <div class="read-more">
-                                                                        <button class="btn btn-primary btn-sm">Read More</button> 
-                                                                </div>
-                                                        </div>
-                                                </article>      
-
-                                                <article class="article-medium">
-                                                        <div class="row">
-                                                                <!--Image-->
-                                                                <div class="col-sm-6">
-                                                                        <div class="frame">
-                                                                                <a class="image" href="#">
-                                                                                        <figure class="image-holder">
-                                                                                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/sf-rowing-medium.jpg" alt="Sf Rowing et purus vel augue posuere dignissim Praesent iaculis">
-                                                                                        </figure>
-                                                                                        <div class="image-light"></div>
-                                                                                        <span class="dashicons dashicons-format-chat"></span>
-                                                                                </a>
-                                                                        </div>
-                                                                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" class="shadow" alt="shadow">                                    
-                                                                </div>
-
-                                                                <!--Content-->
-                                                                <div class="col-sm-6">
-                                                                        <h4><a href="#">Sf Rowing et purus vel augue posuere dignissim Praesent iaculis</a></h4>
-                                                                        <p class="post-meta">
-                                                                                <a href="#"><span class="fa fa-clock-o"></span> December 4, 2013</a> 
-                                                                                <a href="#"><span class="fa fa-user"></span> FriskaMax</a> 
-                                                                                <a href="#"><span class="fa fa-comments"></span> 1,324</a> 
-                                                                                <a href="#"><span class="fa fa-eye"></span> 4,448</a>
-                                                                        </p>
-                                                                        <p>
-                                                                                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                                                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea consequat. Duis aute irure 
-                                                                                reprehenderit...
-                                                                        </p>                                    
-                                                                </div>
-                                                        </div>
-
-                                                        <!--Footer-->
-                                                        <div class="footer">
-                                                               <!-- <ul class="tags">
-                                                                        <li><a href="#">ellentesque</a></li>
-                                                                        <li><a href="#">molestie</a></li>
-                                                                        <li><a href="#">nisl</a></li>
-                                                                        <li><a href="#">tempus</a></li>
-                                                                        <li><a href="#">enim</a></li>
-                                                                        <li><a href="#">imperdiet</a></li>
-                                                                </ul> -->
-                                                                <div class="read-more">
-                                                                        <button class="btn btn-primary btn-sm">Read More</button> 
-                                                                </div>
-                                                        </div>
-                                                </article>      
-
-                                                <article class="article-medium">
-                                                        <div class="row">
-                                                                <!--Image-->
-                                                                <div class="col-sm-6">
-                                                                        <div class="frame">
-                                                                                <a class="image" href="#">
-                                                                                        <figure class="image-holder">
-                                                                                                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/content/unsplash_52c36f5d2cdb2_1-medium.jpg" alt="Pellentesque eleifend semper rhoncus Aliquam nunc mauris">
-                                                                                        </figure>
-                                                                                        <div class="image-light"></div>
-                                                                                        <span class="dashicons dashicons-format-link"></span>
-                                                                                </a>
-                                                                        </div>
-                                                                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" class="shadow" alt="shadow">                                    
-                                                                </div>
-
-                                                                <!--Content-->
-                                                                <div class="col-sm-6">
-                                                                        <h4><a href="#">Pellentesque eleifend semper rhoncus Aliquam nunc mauris</a></h4>
-                                                                        <p class="post-meta">
-                                                                                <a href="#"><span class="fa fa-clock-o"></span> December 4, 2013</a> 
-                                                                                <a href="#"><span class="fa fa-user"></span> FriskaMax</a> 
-                                                                                <a href="#"><span class="fa fa-comments"></span> 1,324</a> 
-                                                                                <a href="#"><span class="fa fa-eye"></span> 4,448</a>
-                                                                        </p>
-                                                                        <p>
-                                                                                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                                                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea consequat. Duis aute irure 
-                                                                                reprehenderit...
-                                                                        </p>                                    
-                                                                </div>
-                                                        </div>
-
-                                                        <!--Footer-->
-                                                        <div class="footer">
-                                                               
-                                                                <div class="read-more">
-                                                                        <button class="btn btn-primary btn-sm">Read More</button> 
-                                                                </div>
-                                                        </div>
-                                                </article>      
-
+												<?php } ?>
 
                                                 <!-- PAGINATION -->
                                                 <ul class="pagination">
                                                         <li><a href="#" title="prev"><i class="fa fa-angle-double-left"></i></a></li>
                                                         <li class="divider"></li>
-                                                        <li><a href="#">1</a></li>
+                                                        <!--<li><a href="#">1</a></li>
                                                         <li class="active"><span>2</span></li>
                                                         <li><a href="#">3</a></li>
                                                         <li><a href="#">4</a></li>
-                                                        <li><a href="#">5</a></li>
+                                                        <li><a href="#">5</a></li>-->
+														
+														<?php for($i=1;$i<=$total_page;$i++) { ?>
+															
+															<?php if($page == $i) { ?>
+																<li class="active"><span><?php echo $i; ?></span></li>
+															<?php }  else { ?>
+																<li><a href="<?php echo Yii::app()->createUrl('gallery/index', array('page'=>$i))?>"><?php echo $i; ?></a></li>			
+															<?php } ?>
+															
+														<?php } ?>
+														
                                                         <li class="divider"></li>
                                                         <li><a href="#" title="next"><i class="fa fa-angle-double-right"></i></a></li>
                                                 </ul>

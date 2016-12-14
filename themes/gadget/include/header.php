@@ -53,12 +53,27 @@
               <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Forts  <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="<?php echo Yii::app()->createUrl('blog/index',array('category'=>'paschim-maharashtra'))?>">Paschim Maharashtra</a></li>
+
+
+              <?php 
+                    $result=Yii::app()->db->createCommand()
+                              ->select('*')
+                              ->from("fort_category")
+                              ->queryAll();
+
+                              for($i=0;$i<count($result);$i++) {
+              ?>
+              
+                <li><a href="<?php echo Yii::app()->createUrl('blog/category',array('category'=>$result[$i]['category_name'],'page'=>1))?>"><?php echo $result[$i]['category_name']; ?></a></li>
+              
+              <?php } ?>
+
+                 <!-- <li><a href="<?php echo Yii::app()->createUrl('blog/index',array('category'=>'paschim-maharashtra'))?>">Paschim Maharashtra</a></li>
                   <li><a href="<?php echo Yii::app()->createUrl('blog/index',array('category'=>'kokan'))?>">Konkan</a></li>
                   <li><a href="<?php echo Yii::app()->createUrl('blog/index',array('category'=>'khandesh'))?>">Khandesh</a></li>
                   <li><a href="<?php echo Yii::app()->createUrl('blog/index',array('category'=>'vidharbha'))?>">Vidarbha</a></li>
                   <li><a href="<?php echo Yii::app()->createUrl('blog/index',array('category'=>'marathwada'))?>">Marathwada</a></li>
-                  <li><a href="<?php echo Yii::app()->createUrl('blog/index',array('category'=>'other'))?>">Others</a></li>
+                  <li><a href="<?php echo Yii::app()->createUrl('blog/index',array('category'=>'other'))?>">Others</a></li>-->
                 </ul>
               </li>
               <li><a href="<?php echo Yii::app()->createUrl('kings/index')?>">Kings</a></li>

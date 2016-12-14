@@ -23,7 +23,7 @@
               <!-- Widget Header -->
               <header class="clearfix">
                 <h4>Latest Fort Blog</h4>
-                <a href="#" class="control">
+                <a href="<?php echo Yii::app()->createUrl('blog/index')?>" class="control">
                   <i class="fa fa-plus">
                   </i>
                 </a>

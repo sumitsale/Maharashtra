@@ -19,4 +19,14 @@ class Commanmodel
 										
 		return $result;
 	}
+
+		function fetch_count($tablename)
+	{
+		$result=Yii::app()->db->createCommand()
+								->select('count(*) as count')
+								->from("$tablename")
+								->queryAll();
+										
+		return $result[0]['count'];
+	}
 }
