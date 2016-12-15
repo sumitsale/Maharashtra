@@ -116,7 +116,7 @@
               <!-- Widget Header -->
               <header class="clearfix">
                <a href="#"> <h4>Kings </h4> </a>
-                <a href="#" class="control"> <i class="fa fa-plus"> </i> </a>
+                <a href="<?php echo Yii::app()->createUrl('kings/index')?>" class="control"> <i class="fa fa-plus"> </i> </a>
               </header>
 			  
 			  <?php for($i=0;$i<count($kings);$i++) { ?>

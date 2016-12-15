@@ -67,10 +67,15 @@ return array(
 			'rules'=>array(
 				''=>'site/index',
 				
-				'blog/page/<page>' => 'blog/index',
-				'blog'=>'blog/index',
-				'blog/category/<category>/page/<page>'=>'blog/category',
+				'blogs/page/<page>' => 'blog/index',
+				'blogs'=>'blog/index',
+'blogs/category/<category>/page/<page>'=>'blog/category',
+				'blogs/category/<category>'=>'blog/category',
 				
+				
+				'kings/page/<page>' => 'kings/index',
+				'kings'=>'kings/index',
+
 				'<gallery></gallery>'=>'gallery/index',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',

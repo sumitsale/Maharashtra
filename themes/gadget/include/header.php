@@ -64,7 +64,7 @@
                               for($i=0;$i<count($result);$i++) {
               ?>
               
-                <li><a href="<?php echo Yii::app()->createUrl('blog/category',array('category'=>$result[$i]['category_name'],'page'=>1))?>"><?php echo $result[$i]['category_name']; ?></a></li>
+                <li><a href="<?php echo Yii::app()->createUrl('blog/category',array('category'=>$result[$i]['category_name']))?>"><?php echo $result[$i]['category_name']; ?></a></li>
               
               <?php } ?>
 

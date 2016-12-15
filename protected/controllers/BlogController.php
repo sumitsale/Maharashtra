@@ -22,17 +22,23 @@ public function actionIndex($page=1)
 		// echo "<pre>";
 		// print_r($fort_blogs);exit;
 		
+		$popular_fort_blogs = $commanModel->fetch_data('fort_blog',4,0,'view_count','desc');
+		$resent_fort_blogs = $commanModel->fetch_data('fort_blog',4,0,'id','desc');
+		$gallery = $commanModel->fetch_data('gallery',4,0,'id','desc');
 
 		$this->render('index',array(
 			'fort_blogs'=>$fort_blogs,
 			'total_page'=>$total_page,
-			'page'=>$page
+			'page'=>$page,
+			'popular_fort_blogs' => $popular_fort_blogs,
+			'resent_fort_blogs' => $resent_fort_blogs,
+			'gallery' => $gallery
 		));
 	}
 
 public function actionCategory($category, $page=1)
 	{
-		echo $category;
+	//	echo $category;
 		$limit = 2;
 		if($page == 1) {
 				$offset = 0;
@@ -81,11 +87,18 @@ public function actionCategory($category, $page=1)
 		// print_r($fort_blogs);exit;
 		
 
+		$popular_fort_blogs = $commanModel->fetch_data('fort_blog',4,0,'view_count','desc');
+		$resent_fort_blogs = $commanModel->fetch_data('fort_blog',4,0,'id','desc');
+		$gallery = $commanModel->fetch_data('gallery',4,0,'id','desc');
+
 		$this->render('category',array(
 			'fort_blogs'=>$fort_blogs,
 			'total_page'=>$total_page,
 			'page'=>$page,
-			'category'=>$category
+			'category'=>$category,
+			'popular_fort_blogs' => $popular_fort_blogs,
+			'resent_fort_blogs' => $resent_fort_blogs,
+			'gallery' => $gallery
 		));
 	}
 
