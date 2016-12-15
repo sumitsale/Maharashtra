@@ -2,7 +2,7 @@
 
 class BlogdetailController extends Controller
 {
-	public function actionIndex()
+	public function actionIndex($name)
 	{
 		$this->render('index');
 	}

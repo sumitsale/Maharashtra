@@ -36,7 +36,7 @@
                   <!--frame-->
                   <div class="frame">
                     <!--image-->
-                    <a class="image" href="javascript::void(0);">
+                    <a class="image" href="<?php echo Yii::app()->createUrl('blogdetail/index',array('name'=> str_replace(' ','-',$fort_blogs[0]['title'])))?>">
                       <figure class="image-holder">
                         <img src="<?php echo Yii::app()->baseurl.'../images/fort/thumbnail/'.$fort_blogs[0]['thumbnail']; ?>" alt="<?php echo $fort_blogs[0]['thumbnail_alt']; ?>">
                       </figure>
@@ -48,7 +48,8 @@
                   </div>
                   <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" class="shadow" alt="shadow">
                   <h4>
-                    <a href="javascript::void0);"><?php echo $fort_blogs[0]['title']; ?>
+                    <a href="<?php echo Yii::app()->createUrl('blogdetail/index',array('name'=> str_replace(' ','-',$fort_blogs[0]['title'])))?>">
+                         <?php echo $fort_blogs[0]['title']; ?>
                     </a>
                   </h4>
                   <p class="post-meta">
@@ -73,7 +74,7 @@
 				<?php for($i= 1; $i < count($fort_blogs); $i++) { ?>
 				<div class="col-sm-6 article-tiny">
                   <!-- image -->
-                  <a href="#" class="image">
+                  <a href="<?php echo Yii::app()->createUrl('blogdetail/index',array('name'=> str_replace(' ','-',$fort_blogs[$i]['title'])))?>" class="image">
                     <figure class="image-holder">
                       <img width="95px;" height="75px;" src="<?php echo Yii::app()->baseurl.'../images/fort/thumbnail/'.$fort_blogs[$i]['thumbnail']; ?>" alt="<?php echo $fort_blogs[$i]['thumbnail_alt']; ?>">
                     </figure>
@@ -84,7 +85,7 @@
                   </a>
                   <!--content-->
                   <h5>
-                    <a href="#"><?php echo $fort_blogs[$i]['title']; ?>
+                    <a href="<?php echo Yii::app()->createUrl('blogdetail/index',array('name'=> str_replace(' ','-',$fort_blogs[$i]['title'])))?>"><?php echo $fort_blogs[$i]['title']; ?>
                     </a>
                   </h5>
                   <p class="post-meta">

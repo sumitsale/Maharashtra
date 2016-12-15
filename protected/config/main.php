@@ -72,7 +72,13 @@ return array(
 'blogs/category/<category>/page/<page>'=>'blog/category',
 				'blogs/category/<category>'=>'blog/category',
 				
+
+'blog-detail/<name>'=>'blogdetail/index',
 				
+
+				'gallery/page/<page>' => 'gallery/index',
+				'gallery'=>'gallery/index',
+
 				'kings/page/<page>' => 'kings/index',
 				'kings'=>'kings/index',
 
