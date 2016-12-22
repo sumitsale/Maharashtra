@@ -73,7 +73,11 @@ return array(
 				'blogs/category/<category>'=>'blog/category',
 				
 				'blog-detail/<name>'=>'blogdetail/index',
+
+				'king-detail/<name>'=>'kings/detail',
 				
+				'war/<name>'=>'wars/detail',
+
 				'gallery/page/<page>' => 'gallery/index',
 				'gallery'=>'gallery/index',
 

@@ -26,7 +26,7 @@
                                                                 <!--Image-->
                                                                 <div class="col-sm-6">
                                                                         <div class="frame">
-                                                                                <a class="image" href="#">
+                                                                                <a class="image" href="<?php echo Yii::app()->createUrl('blogdetail/index',array('name'=> str_replace(' ','-',$fort_blogs[$i]['title'])))?>">
                                                                                         <figure class="image-holder">
                                                                                                 <img src="<?php echo Yii::app()->baseurl.'../images/fort/thumbnail/'.$fort_blogs[$i]['thumbnail']; ?>" alt="<?php echo $fort_blogs[$i]['thumbnail_alt']; ?>">
                                                                                         </figure>
@@ -39,7 +39,9 @@
 
                                                                 <!--Content-->
                                                                 <div class="col-sm-6">
-                                                                        <h4><a href="#"><?php echo $fort_blogs[$i]['title']; ?></a></h4>
+                                                                        <h4><a href="<?php echo Yii::app()->createUrl('blogdetail/index',array('name'=> str_replace(' ','-',$fort_blogs[$i]['title'])))?>">
+                                                                          <?php echo $fort_blogs[$i]['title']; ?>
+                                                                        </a></h4>
                                                                         <p class="post-meta">
                                                                                 <a href="#"><span class="fa fa-clock-o"></span> <?php echo date('F m, Y', strtotime($fort_blogs[$i]['blog_date']));?></a> 
                                                                                 <!--<a href="#"><span class="fa fa-user"></span> FriskaMax</a> -->
@@ -56,7 +58,9 @@
                                                         <div class="footer">
                                                                  
                                                                 <div class="read-more">
-                                                                        <button class="btn btn-primary btn-sm">Read More</button> 
+                                                                       <a href="<?php echo Yii::app()->createUrl('blogdetail/index',array('name'=> str_replace(' ','-',$fort_blogs[$i]['title'])))?>">
+                                                                             <button class="btn btn-primary b tn-sm">Read More</button>
+                                                                        </a>      
                                                                 </div>
                                                         </div>
                                                 </article>      

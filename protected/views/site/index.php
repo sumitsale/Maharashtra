@@ -126,7 +126,7 @@
                   <!--Image-->
                   <div class="col-sm-6">
                     <div class="frame">
-                      <a class="image" href="#">
+                      <a class="image" href="<?php echo Yii::app()->createUrl('kings/detail',array('name'=> str_replace(' ','-',$kings[$i]['title'])))?>">
                         <figure class="image-holder">
                           <img src="<?php echo Yii::app()->baseurl.'../images/kings/thumbnail/'.$kings[$i]['thumbnail']; ?>" alt="<?php echo $kings[$i]['thumbnail_alt']; ?>">
                         </figure>
@@ -141,15 +141,16 @@
                   <!--Content-->
                   <div class="col-sm-6">
                     <h4>
-                      <a href="#"><?php echo $kings[$i]['title']; ?>
+                      <a href="<?php echo Yii::app()->createUrl('kings/detail',array('name'=> str_replace(' ','-',$kings[$i]['title'])))?>">
+                         <?php echo $kings[$i]['title']; ?>
                       </a>
                     </h4>
                     <p class="post-meta">
-                      <a href="#">
+                      <a href="javascript::void(0);">
                         <span class="fa fa-clock-o">  </span> Dec 4, 2013 </a> 
                       <!--<a href="#"> <span class="fa fa-folder"> </span> Bussiness </a> 
                       <a href="#"> <span class="fa fa-comments"> </span> 1,324 </a> -->
-                      <a href="#"> <span class="fa fa-eye"> </span> <?php echo $kings[$i]['view_count']; ?> </a>
+                      <a href="javascript::void(0);"> <span class="fa fa-eye"> </span> <?php echo $kings[$i]['view_count']; ?> </a>
                     </p>
                     <p>
 					<?php echo substr(strip_tags($kings[$i]['english_content']),0,245).'...'; ?> 
@@ -178,7 +179,7 @@
                   <!--frame-->
                   <div class="frame">
                     <!--image-->
-                    <a class="image" href="#">
+                    <a class="image" href="<?php echo Yii::app()->createUrl('wars/detail',array('name'=> str_replace(' ','-',$kings[0]['title'])))?>">
                       <figure class="image-holder">
                              <img src="<?php echo Yii::app()->baseurl.'../images/wars/thumbnail/'.$wars[0]['thumbnail']; ?>" alt="<?php echo $wars[0]['thumbnail_alt']; ?>">
                       </figure>
@@ -190,11 +191,11 @@
                   </div>
                   <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/shadow.png" class="shadow" alt="shadow">
                   <h4>
-                    <a href="#"><?php echo $wars[0]['title']; ?>
+                    <a href="<?php echo Yii::app()->createUrl('wars/detail',array('name'=> str_replace(' ','-',$wars[0]['title'])))?>"><?php echo $wars[0]['title']; ?>
                     </a>
                   </h4>
                   <p class="post-meta">
-                    <a href="#">
+                    <a href="javascript::void(0);">
                       <span class="fa fa-clock-o">
                       </span> <?php echo date('F m, Y', strtotime($wars[0]['blog_date']));?>
                     </a> 
@@ -217,7 +218,7 @@
 				<?php for($i=1;$i<count($wars);$i++) { ?>
                 <div class="col-sm-6 article-tiny">
                   <!-- image -->
-                  <a href="#" class="image">
+                  <a href="<?php echo Yii::app()->createUrl('wars/detail',array('name'=> str_replace(' ','-',$wars[$i]['title'])))?>" class="image">
                     <figure class="image-holder">
 							<img width="95px;" height="75px;" src="<?php echo Yii::app()->baseurl.'../images/wars/thumbnail/'.$wars[$i]['thumbnail']; ?>" alt="<?php echo $wars[$i]['thumbnail_alt']; ?>">
                     </figure>
@@ -228,7 +229,8 @@
                   </a>
                   <!--content-->
                   <h5>
-                    <a href="#"><?php echo $wars[$i]['title']; ?>
+                    <a href="<?php echo Yii::app()->createUrl('wars/detail',array('name'=> str_replace(' ','-',$wars[$i]['title'])))?>">
+                    <?php echo $wars[$i]['title']; ?>
                     </a>
                   </h5>
                   <p class="post-meta">
@@ -457,7 +459,7 @@
  
 			<?php for($i=0;$i<count($fort_gallerys);$i++) { ?>
 				<li>
-                    <a href="gallery.html" title="Raigad Fort">
+                    <a href="<?php echo Yii::app()->createUrl('gallery/index'); ?>" title="Raigad Fort">
                       <div data-src="<?php echo Yii::app()->baseurl.'../images/fortgallery/smallthumbnail/'.$fort_gallerys[$i]['thumbnail']; ?>" data-alt="<?php echo $fort_gallerys[$i]['alt_thumbnail']?>">
                       </div>
                       <div class="image-caption">
