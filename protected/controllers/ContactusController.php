@@ -4,7 +4,18 @@ class ContactusController extends Controller
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+
+		$commanModel = new Commanmodel();
+
+		$popular_fort_blogs = $commanModel->fetch_data('fort_blog',4,0,'view_count','desc');
+		$resent_fort_blogs = $commanModel->fetch_data('fort_blog',4,0,'id','desc');
+		$gallery = $commanModel->fetch_data('gallery',4,0,'id','desc');
+
+		$this->render('index',array(
+			'popular_fort_blogs'=>$popular_fort_blogs,
+			'resent_fort_blogs'=>$resent_fort_blogs,
+			'gallery'=>$gallery
+		));
 	}
 
 	// Uncomment the following methods and override them if needed

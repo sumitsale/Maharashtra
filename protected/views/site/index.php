@@ -459,8 +459,8 @@
  
 			<?php for($i=0;$i<count($fort_gallerys);$i++) { ?>
 				<li>
-                    <a href="<?php echo Yii::app()->createUrl('gallery/index'); ?>" title="Raigad Fort">
-                      <div data-src="<?php echo Yii::app()->baseurl.'../images/fortgallery/smallthumbnail/'.$fort_gallerys[$i]['thumbnail']; ?>" data-alt="<?php echo $fort_gallerys[$i]['alt_thumbnail']?>">
+                    <a href="<?php echo Yii::app()->createUrl('fortgallery/index',array('name'=> str_replace(' ','-',$fort_gallerys[$i]['title'])))?>" title="<?php echo $fort_gallerys[$i]['title'];?>">
+                      <div data-height="180px;" data-width="180px;" data-src="<?php echo Yii::app()->baseurl.'../images/gallery/thumbnail/'.$fort_gallerys[$i]['thumbnail']; ?>" alt="<?php echo $fort_gallerys[$i]['thumbnail_alt'];?>">
                       </div>
                       <div class="image-caption">
                         <h5><?php echo $fort_gallerys[$i]['title'];?></h5>

@@ -33,7 +33,7 @@ class SiteController extends Controller
 		$fort_blogs = $commanModel->fetch_data('fort_blog',5,0,'id','desc');
 		$kings = $commanModel->fetch_data('kings',3,0,'id','desc');
 		$wars = $commanModel->fetch_data('wars',5,0,'id','desc');
-		$fort_gallerys = $commanModel->fetch_data('fort_gallry',6,0,'id','desc');
+		$fort_gallerys = $commanModel->fetch_data('gallery',6,0,'id','desc');
 
 		$popular_fort_blogs = $commanModel->fetch_data('fort_blog',4,0,'view_count','desc');
 		$resent_fort_blogs = $commanModel->fetch_data('fort_blog',4,0,'id','desc');

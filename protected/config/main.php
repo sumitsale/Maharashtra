@@ -81,6 +81,9 @@ return array(
 				'gallery/page/<page>' => 'gallery/index',
 				'gallery'=>'gallery/index',
 
+				'blogs/<name>/page/<page>' => 'fortgallery/index',
+				'gallery/<name>'=>'fortgallery/index',
+
 				'kings/page/<page>' => 'kings/index',
 				'kings'=>'kings/index',
 
