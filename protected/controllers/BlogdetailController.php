@@ -5,7 +5,7 @@ class BlogdetailController extends Controller
 	public function actionIndex($name)
 	{
 
-		
+$this->activemenu = 'fort';		
 		$commanModel = new Commanmodel();
 
 		$blog_detail = 		$result=Yii::app()->db->createCommand()

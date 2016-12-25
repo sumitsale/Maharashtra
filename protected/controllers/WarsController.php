@@ -5,6 +5,8 @@ class WarsController extends Controller
 
 public function actionIndex($page=1)
 	{
+
+	$this->activemenu = 'wars';
 		$limit = 2;
 		if($page == 1) {
 				$offset = 0;
@@ -39,6 +41,7 @@ public function actionIndex($page=1)
 	public function actionDetail($name)
 	{
 
+	$this->activemenu = 'wars';
 		
 		$commanModel = new Commanmodel();
 

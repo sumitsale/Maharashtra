@@ -31,7 +31,9 @@ return array(
 
 	// application components
 	'components'=>array(
-			
+	'errorHandler'=>array(
+            'errorAction' => 'site/error'
+        ),
 	'easyImage' => array(
         'class' => 'application.extensions.easyimage.EasyImage',
         //'driver' => 'GD',
@@ -87,6 +89,7 @@ return array(
 				'kings/page/<page>' => 'kings/index',
 				'kings'=>'kings/index',
 
+				'thank-you'=>'contactus/submit',
 				'<gallery></gallery>'=>'gallery/index',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',

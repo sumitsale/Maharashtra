@@ -5,6 +5,8 @@ class BlogController extends Controller
 
 public function actionIndex($page=1)
 	{
+
+	$this->activemenu = 'fort';
 		$limit = 2;
 		if($page == 1) {
 				$offset = 0;
@@ -38,6 +40,8 @@ public function actionIndex($page=1)
 
 public function actionCategory($category, $page=1)
 	{
+
+	$this->activemenu = 'fort';
 	//	echo $category;
 		$limit = 2;
 		if($page == 1) {

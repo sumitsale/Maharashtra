@@ -1,4 +1,4 @@
-   <header>
+<?php //echo $this->activemenu ?>   <header>
       <nav class="navbar navbar-inverse" id="top-nav" role="navigation">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -49,8 +49,8 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="main-nav-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"> <a href="<?php echo Yii::app()->createUrl('site/index')?>"> <i class="fa fa-home"></i>Home</a></li>
-              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Forts  <b class="caret"></b>
+              <li class="<?php if($this->activemenu == 'home')  { echo "active"; } ?>"> <a href="<?php echo Yii::app()->createUrl('site/index')?>"> <i class="fa fa-home"></i>Home</a></li>
+              <li class="dropdown <?php if($this->activemenu == 'fort')  { echo "active"; } ?>"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Forts  <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
 
@@ -76,10 +76,10 @@
                   <li><a href="<?php echo Yii::app()->createUrl('blog/index',array('category'=>'other'))?>">Others</a></li>-->
                 </ul>
               </li>
-              <li><a href="<?php echo Yii::app()->createUrl('kings/index')?>">Kings</a></li>
-              <li><a href="<?php echo Yii::app()->createUrl('wars/index')?>">War</a></li>   
-              <li><a href="<?php echo Yii::app()->createUrl('gallery/index')?>">Gallery</a></li>      
-              <li><a href="<?php echo Yii::app()->createUrl('contactus/index')?>">Contact Us</a></li>               
+              <li class="<?php if($this->activemenu == 'kings')  { echo 'active'; } ?>" ><a href="<?php echo Yii::app()->createUrl('kings/index')?>">Kings</a></li>
+              <li class="<?php if($this->activemenu == 'wars')  { echo 'active'; } ?>"><a href="<?php echo Yii::app()->createUrl('wars/index')?>">War</a></li>   
+              <li class="<?php if($this->activemenu == 'gallery')  { echo 'active'; } ?>"><a href="<?php echo Yii::app()->createUrl('gallery/index')?>">Gallery</a></li>      
+              <li class="<?php if($this->activemenu == 'contactus')  { echo 'active'; } ?>"><a href="<?php echo Yii::app()->createUrl('contactus/index')?>">Contact Us</a></li>               
             </ul>
           </div>
         </div>

@@ -4,6 +4,8 @@ class KingsController extends Controller
 {
 public function actionIndex($page=1)
 	{
+
+	$this->activemenu = 'kings';
 		$limit = 2;
 		if($page == 1) {
 				$offset = 0;
@@ -38,8 +40,7 @@ public function actionIndex($page=1)
 
 	public function actionDetail($name)
 	{
-
-		
+		$this->activemenu = 'kings';
 		$commanModel = new Commanmodel();
 
 		$blog_detail = 		$result=Yii::app()->db->createCommand()

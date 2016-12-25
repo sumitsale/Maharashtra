@@ -5,6 +5,8 @@ class GalleryController extends Controller
 	
 public function actionIndex($page=1)
 	{
+		$this->activemenu = 'gallery';
+
 		$limit = 2;
 		if($page == 1) {
 				$offset = 0;

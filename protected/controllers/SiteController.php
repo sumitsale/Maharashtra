@@ -2,6 +2,7 @@
 
 class SiteController extends Controller
 {
+
 	/**
 	 * Declares class-based actions.
 	 */
@@ -28,6 +29,7 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
 
+	$this->activemenu = 'home';
 		$commanModel = new Commanmodel();
 
 		$fort_blogs = $commanModel->fetch_data('fort_blog',5,0,'id','desc');

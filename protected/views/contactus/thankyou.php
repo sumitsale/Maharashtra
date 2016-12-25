@@ -16,29 +16,10 @@
                                                 <header class="clearfix"><h4>Get in touch</h4></header>
 
                                                 <p>
-                                                        Aliquam vulputate diam risus, accumsan rhoncus libero feugiat id. Cras mollis, 
-                                                        leo pretium tempor sagittis, lectus metus facilisis tellus, eget viverra sem odio 
-                                                        non libero. Vestibulum venenatis auctor imperdiet.
-                                                </p>
+                                                    <h1>Thank you for your feedback.</h1>
+                                                  </p>
 
-                                                <form method="post" action="<?php echo CController::createUrl("contactus/submit"); ?>">
-                                                        <div class="input-group">
-                                                                <i class="fa fa-user"></i>
-                                                                <input type="text" name="name" placeholder="Your full name *" required>
-                                                        </div>
-                                                        <div class="input-group">
-                                                                <i class="fa fa-envelope"></i>
-                                                                <input type="email" name="email" placeholder="Your email address *"  required>
-                                                        </div>
-                                                        <div class="input-group">
-                                                                <i class="fa fa-link"></i>
-                                                                <input type="url" name="website" placeholder="Your website">
-                                                        </div>
-                                                        <div class="textarea">
-                                                                <textarea name="comment" placeholder="Your message *" rows="12"  required></textarea>
-                                                        </div>  
-                                                        <button type="submit" class="btn btn-primary">Send Message</button>
-                                                </form>
+                                                
                                         </div>
                                         
                                         <aside class="col-md-4">

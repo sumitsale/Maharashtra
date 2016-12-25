@@ -135,7 +135,7 @@
                   <div class="tab-pane active fade in" id="popular-aside">
                     <?php for($i=0;$i<count($popular_fort_blogs);$i++) { ?>
 					<div class="article-tiny">
-                      <a href="#" class="image">
+                      <a href="<?php echo Yii::app()->createUrl('blogdetail/index',array('name'=> str_replace(' ','-',$popular_fort_blogs[$i]['title'])))?>" class="image">
                         <figure class="image-holder">
                          <img width="95px;" height="75px;" src="<?php echo Yii::app()->baseurl.'../images/fort/thumbnail/'.$popular_fort_blogs[$i]['thumbnail']; ?>" alt="<?php echo $popular_fort_blogs[$i]['thumbnail_alt'];?>">
                         </figure>
@@ -145,7 +145,7 @@
                         </span>
                       </a>
                       <h5>
-                        <a href="#"><?php echo $popular_fort_blogs[$i]['title'];?>
+                        <a href="<?php echo Yii::app()->createUrl('blogdetail/index',array('name'=> str_replace(' ','-',$popular_fort_blogs[$i]['title'])))?>"><?php echo $popular_fort_blogs[$i]['title'];?>
                         </a>
                       </h5>
                       <p class="post-meta">
@@ -167,7 +167,7 @@
 				  <div class="tab-pane fade" id="recent-aside">
 				    <?php for($i=0;$i<count($resent_fort_blogs);$i++) { ?>
                     <div class="article-tiny">
-                      <a href="#" class="image">
+                      <a href="<?php echo Yii::app()->createUrl('blogdetail/index',array('name'=> str_replace(' ','-',$resent_fort_blogs[$i]['title'])))?>" class="image">
                         <figure class="image-holder">
 								<img width="95px;" height="75px;" src="<?php echo Yii::app()->baseurl.'../images/fort/thumbnail/'.$resent_fort_blogs[$i]['thumbnail']; ?>" alt="<?php echo $resent_fort_blogs[$i]['thumbnail_alt'];?>">
                         </figure>
@@ -177,7 +177,7 @@
                         </span>
                       </a>
                       <h5>
-                        <a href="#"><?php echo $resent_fort_blogs[$i]['title'];?>
+                        <a href="<?php echo Yii::app()->createUrl('blogdetail/index',array('name'=> str_replace(' ','-',$resent_fort_blogs[$i]['title'])))?>"><?php echo $resent_fort_blogs[$i]['title'];?>
                         </a>
                       </h5>
                       <p class="post-meta">
@@ -201,7 +201,7 @@
                       <?php for($i=0;$i<count($gallery);$i++ ) { ?>
 					  <li>
                         <div class="avatar">
-                          <a href="#" class="light">
+                          <a href="<?php echo Yii::app()->createUrl('fortgallery/index',array('name'=> str_replace(' ','-',$gallery[$i]['title'])))?>">
                             <img width="95px;" height="75px;" src="<?php echo Yii::app()->baseurl.'../images/gallery/thumbnail/'.$gallery[$i]['thumbnail']; ?>" alt="<?php echo $gallery[$i]['thumbnail_alt'];?>">
                             <div class="layer">
                             </div>
@@ -209,7 +209,8 @@
                         </div>
                         <div class="content">
                           <div class="comment-content">
-                            <a href="#"><?php echo $gallery[$i]['title'];?>
+                            <a href="<?php echo Yii::app()->createUrl('fortgallery/index',array('name'=> str_replace(' ','-',$gallery[$i]['title'])))?>">
+                            <?php echo $gallery[$i]['title'];?>
                             </a>
                           </div>
                           <div class="comment-meta">
